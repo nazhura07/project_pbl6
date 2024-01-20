@@ -3,9 +3,9 @@
 @section('content')
     <div class="bg-[#F0CDCF] h-screen flex justify-center items-center">
         <div class="bg-slate-50 p-10 rounded-3xl shadow-lg">
+            <h1 class="text-center font-semibold text-xl mb-6">Buat Akun</h1>
             <div class="flex justify-center items-center gap-10">
                 <div class="w-full flex-1">
-                    <h1 class="text-center font-semibold text-xl mb-6">Buat Akun</h1>
                     <form action="{{route('register')}}" method="post">
                         @csrf
                         <div class="mb-2">
@@ -60,7 +60,7 @@
                         </div>
                     </form>
                 </div>
-                <div class="bg-red-500 w-[400px] h-72 flex justify-center items-center rounded-xl flex-1">
+                <div class="bg-red-500 w-[400px] h-[480px] flex justify-center items-center rounded-xl flex-1">
                     <img src="{{ asset('assets/images/20231026_233516 1.png') }}" alt="" srcset=""
                         class="w-1/2 h-auto">
                 </div>

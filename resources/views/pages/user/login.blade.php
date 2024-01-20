@@ -21,7 +21,7 @@
                             <button class="bg-red-400 text-white w-full rounded-3xl py-3 hover:bg-red-500 duration-300" type="submit">Masuk</button>
                         </div>
                         <div class="flex justify-center items-center ">
-                            <a href="" class="underline text-red-400">Masuk Sebagai Admin</a>
+                            <a href="{{route('loginviewAdmin')}}" class="underline text-red-400">Masuk Sebagai Admin</a>
                         </div>
                     </form>
                 </div>

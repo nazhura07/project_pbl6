@@ -19,8 +19,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/login',  [AuthKlienController::class, 'index'])->name('loginview');
 Route::post('/login', [AuthKlienController::class, 'AuthloginKlien'])->name('login');
 Route::get('/logout', [AuthKlienController::class, 'logout'])->name('logout');
-Route::get('/register', [AuthKlienController::class, 'show'])->name('registerView');
+Route::get('/register', [AuthKlienController::class, 'show'])->name('registerview');
 Route::post('/register', [AuthKlienController::class, 'store'])->name('register');
+Route::get('/login-admin', [AuthKlienController::class, 'indexAdmin'])->name('loginviewAdmin');
+Route::post('/login-admin', [AuthKlienController::class, 'AuthloginAdmin'])->name('loginAdmin');
 
 
 Route::get('/beranda', function () {

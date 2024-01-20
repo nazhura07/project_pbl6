@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Klien;
+use App\Models\User;
 
 
 class AuthKlienController extends Controller
@@ -17,6 +18,10 @@ class AuthKlienController extends Controller
     {
         return view('pages.user.login');
     }
+    public function indexAdmin()
+    {
+        return view('pages.admin.login');
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -27,29 +32,34 @@ class AuthKlienController extends Controller
             'email' => 'required',
             'password' => 'required',
         ]);
+        $credentials = $request->only('email', 'password');
 
-    try {
-        $succeslogin = Auth::attempt([
-            'email' => $request->email,
-            'password' => $request->password
-        ]);
-        info('Login Attempt', [
-            'email' => $request->email,
-            'password' => $request->password,
-            'success' => $succeslogin,
-        ]);
-        // dd($succeslogin, $request->email, $request->password);
-        if ($succeslogin) {
+        $successLogin = Auth::guard('web')->attempt($credentials);
+
+        if ($successLogin) {
             return redirect()->route('beranda')->with('success', 'Login berhasil');
         } else {
             return back()->withErrors(['login' => 'Email Atau Password Salah']);
         }
-    } catch (\Exception $e) {
-        // Tangani pengecualian di sini
-            info('Exception during login', ['exception' => $e]);
-            return back()->withErrors(['error' => 'Terjadi kesalahan saat login.']);
-    }
 }
+    public function AuthloginAdmin(Request $request)
+    {
+
+        $request->validate([
+            'name' => 'required',
+            'password' => 'required',
+        ]);
+
+        $credentials = $request->only('name', 'password');
+
+        $successLogin = Auth::guard('admin')->attempt($credentials);
+
+        if ($successLogin) {
+            return redirect()->route('beranda')->with('success', 'Login berhasil');
+        } else {
+            return back()->withErrors(['login' => 'Nama Atau Password Salah']);
+        }
+    }
     public function logout(Request $request){
         Auth::logout();
         $request->session()->invalidate();

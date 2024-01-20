@@ -22,6 +22,9 @@
                             <span class="text-base">Konselor</span>
                         </a>
                         <a href="" class="bg-[#A5242D] text-center text-white w-48 py-4 rounded-2xl hover:bg-red-500 duration-300 ease-in-out">
+                            <span class="text-base">Schedule</span>
+                        </a>
+                        <a href="" class="bg-[#A5242D] text-center text-white w-48 py-4 rounded-2xl hover:bg-red-500 duration-300 ease-in-out">
                             <span class="text-base">Daftar Artikel</span>
                         </a>
                     </div>

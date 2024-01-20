@@ -36,3 +36,12 @@ Route::get('/konselor', function () {
 Route::get('/artikel', function () {
     return view('pages.user.artikel');
 });
+
+Route::get('/detail-profile', function () {
+    return view('pages.user.detailprofile');
+});
+
+
+Route::get('/janji-temu', function () {
+    return view('pages.user.janjitemu');
+});

@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('jam_konselings', function (Blueprint $table) {
             $table->id();
+            $table->dateTime('tanggal');
             $table->time('waktu_awal');
             $table->time('waktu_akhir');
             $table->boolean('status');

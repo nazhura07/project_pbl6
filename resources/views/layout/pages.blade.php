@@ -10,7 +10,7 @@
     {{-- <link rel="shortcut icon" href="{{ asset('assets/images/logo.png') }}" type="image/x-icon"> --}}
 </head>
 <body>
-    <main class="mx-auto ">
+    <main class="mx-auto scroll-smooth ">
         @yield('content')
     </main>
 </body>

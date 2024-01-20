@@ -75,3 +75,24 @@ Route::get('/admin/artikel/add', function () {
 });
 
 //konselor
+Route::get('/konselor/login', function () {
+    return view('pages.konselor.login');
+});
+
+
+Route::get('/konselor/beranda', function () {
+    return view('pages.konselor.beranda');
+});
+
+Route::get('/konselor/jadwal', function () {
+    return view('pages.konselor.jadwal.jadwal');
+});
+
+
+Route::get('/konselor/create-jadwal', function () {
+    return view('pages.konselor.jadwal.createjadwal');
+});
+
+Route::get('/konselor/pengajuan-konseling', function () {
+    return view('pages.konselor.pengajuankonseling');
+});

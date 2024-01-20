@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\AuthKlienController;
+use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,22 +16,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/login-admin', function () {
-    return view('pages.admin.login');
-});
+Route::get('/login',  [AuthKlienController::class, 'index'])->name('loginview');
+Route::post('/login', [AuthKlienController::class, 'AuthloginKlien'])->name('login');
+Route::get('/logout', [AuthKlienController::class, 'logout'])->name('logout');
+Route::get('/register', [AuthKlienController::class, 'show'])->name('registerview');
+Route::post('/register', [AuthKlienController::class, 'store'])->name('register');
+Route::get('/login-admin', [AuthKlienController::class, 'indexAdmin'])->name('loginviewAdmin');
+Route::post('/login-admin', [AuthKlienController::class, 'AuthloginAdmin'])->name('loginAdmin');
 
-
-Route::get('/login', function () {
-    return view('pages.user.login');
-});
-
-Route::get('/register', function () {
-    return view('pages.user.register');
-});
 
 Route::get('/beranda', function () {
     return view('pages.user.beranda');
-});
+})->name('beranda');
+
 Route::get('/konselor', function () {
     return view('pages.user.konselor');
 });

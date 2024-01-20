@@ -6,7 +6,10 @@
             <div class="flex justify-center items-center gap-10">
                 <div class="w-full flex-1">
                     <h1 class="text-center font-semibold text-xl mb-6">Masuk Ke Akun</h1>
-                    <form action="" method="post">
+                    <form action="{{route('login')}}" method="post">
+                        @if ($errors->has('login'))
+                                <p class="text-red-500 text-sm italic">{{ $errors->first('login') }}</p>
+                            @endif
                         @csrf
                         <div class="mb-2">
                             <input type="email" id="email" name="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 shadow-sm " placeholder="email" required>
@@ -18,7 +21,7 @@
                             <button class="bg-red-400 text-white w-full rounded-3xl py-3 hover:bg-red-500 duration-300" type="submit">Masuk</button>
                         </div>
                         <div class="flex justify-center items-center ">
-                            <a href="" class="underline text-red-400">Masuk Sebagai Admin</a>
+                            <a href="{{route('loginviewAdmin')}}" class="underline text-red-400">Masuk Sebagai Admin</a>
                         </div>
                     </form>
                 </div>

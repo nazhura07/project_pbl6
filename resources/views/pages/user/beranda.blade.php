@@ -3,9 +3,9 @@
 @section('content')
     <div class="">
         <div class="bg-[#E81D25] flex justify-end items-center py-4 gap-8 ">
-            <a href="" class="text-white">Masuk</a>
+            <a href="{{route('loginview')}}" class="text-white">Masuk</a>
            
-                <a href="" class="text-white">
+                <a href="{{route('registerView')}}" class="text-white">
                     <div class="bg-red-400 hover:bg-red-500 duration-300 ease-in-out rounded-3xl px-4 py-2 mr-10">
                         <span>Buat Akun</span>
                     </div>

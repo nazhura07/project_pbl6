@@ -1,13 +1,16 @@
 @extends('layout.pages')
-@section('title','login Admin')
+@section('title','Register User')
 @section('content')
     <div class="bg-[#F0CDCF] h-screen flex justify-center items-center">
         <div class="bg-slate-50 p-10 rounded-3xl shadow-lg">
             <div class="flex justify-center items-center gap-10">
                 <div class="w-full flex-1">
-                    <h1 class="text-center font-semibold text-xl mb-6">Masuk Ke Akun</h1>
+                    <h1 class="text-center font-semibold text-xl mb-6">Buat Akun</h1>
                     <form action="" method="post">
                         @csrf
+                        <div class="mb-2">
+                            <input type="text" id="text" name="nama" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 shadow-sm " placeholder="nama pengguna" required>
+                        </div>
                         <div class="mb-2">
                             <input type="email" id="email" name="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 shadow-sm " placeholder="email" required>
                         </div>
@@ -15,10 +18,13 @@
                             <input type="password" id="password" name="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 shadow-sm " placeholder="password" required>
                         </div>
                         <div class="mb-4">
+                            <input type="password" id="password" name="konfirmasi_password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 shadow-sm " placeholder="konfirmasi password" required>
+                        </div>
+                        <div class="mb-4">
                             <button class="bg-red-400 text-white w-full rounded-3xl py-3 hover:bg-red-500 duration-300" type="submit">Masuk</button>
                         </div>
                         <div class="flex justify-center items-center ">
-                            <a href="" class="underline text-red-400">Masuk Sebagai User</a>
+                            <a href="" class="underline text-red-400">Sudah Memiliki Akun?</a>
                         </div>
                     </form>
                 </div>

@@ -13,6 +13,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/login-admin', function () {
     return view('pages.admin.login');
+});
+
+
+Route::get('/login', function () {
+    return view('pages.user.login');
+});
+
+Route::get('/register', function () {
+    return view('pages.user.register');
+});
+
+Route::get('/beranda', function () {
+    return view('pages.user.beranda');
 });

@@ -13,6 +13,18 @@ return new class extends Migration
     {
         Schema::create('sesi_konselings', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('konselor_id');
+            $table->unsignedBigInteger('klien_id');
+            $table->date('tanggal');
+            $table->time('waktu_mulai');
+            $table->time('waktu_selesai');
+            $table->unsignedBigInteger('kategori_id');
+            $table->boolean('status');
+
+            $table->foreign('konselor_id')->references('id')->on('konselors')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('klien_id')->references('id')->on('kliens')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('kategori_id')->references('id')->on('kategori_masalahs')->onDelete('cascade')->onUpdate('cascade');
+
             $table->timestamps();
         });
     }

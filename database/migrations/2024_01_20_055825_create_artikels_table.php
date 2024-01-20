@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('artikels', function (Blueprint $table) {
             $table->id();
+            $table->string('gambar',255);
+            $table->string('judul',255 );            
+            $table->longtext('deskripsi');
             $table->timestamps();
         });
     }

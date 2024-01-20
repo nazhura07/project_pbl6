@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('feedback', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('sesi_id');
+            $table->string('komentar');
+            $table->string('rating');
             $table->timestamps();
         });
     }

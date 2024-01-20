@@ -1,10 +1,13 @@
 @extends('layout.pages')
 @section('title','login Admin')
 @section('content')
-    <div class="bg-[#F0CDCF] h-screen flex justify-center items-center">
-        <div class="bg-slate-50 p-10 rounded-3xl shadow-lg">
-            <div class="flex justify-center items-center gap-10">
-                <div class="w-full flex-1">
+<div class="bg-[#F0CDCF] h-screen flex justify-center items-center">
+    <div class="bg-slate-50 p-10 rounded-3xl shadow-lg">
+        <div class="flex justify-center items-center gap-10">
+            <div class="w-full flex-1">
+                @if ( session()->has("registerSukses"))
+                <x-toast :type="'sukses'" :message="session('registerSukses')" />
+                @endif
                     <h1 class="text-center font-semibold text-xl mb-6">Masuk Ke Akun</h1>
                     <form action="{{route('login')}}" method="post">
                         @if ($errors->has('login'))

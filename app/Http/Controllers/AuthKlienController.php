@@ -84,7 +84,7 @@ class AuthKlienController extends Controller
         $data->jenis_kelamin = $request->jenis_kelamin;
         $data->password = $request->password;
         $data->save();
-        return redirect('/beranda')->with('success', 'Akun Berhasil dibuat');
+        return redirect('/login')->with('registerSukses', 'Akun Berhasil dibuat');
     }
     public function show(){
         return view('pages.user.register');

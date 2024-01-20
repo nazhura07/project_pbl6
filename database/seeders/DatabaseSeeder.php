@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Spatie\Permission\Models\Role;
 
 class DatabaseSeeder extends Seeder
 {
@@ -12,6 +13,21 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+
+        $role = Role::insert([
+            [
+                "name" => "klien",
+                "guard_name" => "web"
+            ],
+            [
+                "name" => "konselor",
+                "guard_name" => "konselor"
+            ],
+            [
+                "name" => "admin ",
+                "guard_name" => "admin"
+            ],
+        ]);
         // \App\Models\User::factory(10)->create();
 
         // \App\Models\User::factory()->create([

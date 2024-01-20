@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('ijazah_profesi');
             $table->string('surat_izin');
             $table->string('nomor_telepon');
+            $table->boolean('status');
             $table->timestamps();
         });
     }

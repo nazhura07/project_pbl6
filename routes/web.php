@@ -26,3 +26,11 @@ Route::post('/register', [AuthKlienController::class, 'store'])->name('register'
 Route::get('/beranda', function () {
     return view('pages.user.beranda');
 })->name('beranda');
+
+Route::get('/konselor', function () {
+    return view('pages.user.konselor');
+});
+
+Route::get('/artikel', function () {
+    return view('pages.user.artikel');
+});

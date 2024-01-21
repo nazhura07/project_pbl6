@@ -10,10 +10,10 @@
                     <h1 class="text-white text-center text-4xl mb-10">LOVE & LEARN <br>
                         MUNCAR </h1>
                     <div class="flex justify-center items-center flex-col gap-5">
-                        <a href="" class="bg-[#A5242D] text-center text-white w-48 py-4 rounded-2xl hover:bg-red-500 duration-300 ease-in-out">
+                        <a href="{{route('admin.konselor')}}" class="bg-[#A5242D] text-center text-white w-48 py-4 rounded-2xl hover:bg-red-500 duration-300 ease-in-out">
                             <span class="text-base">Daftar Konselor</span>
                         </a>
-                        <a href="" class="bg-[#A5242D] text-center text-white w-48 py-4 rounded-2xl hover:bg-red-500 duration-300 ease-in-out">
+                        <a href="{{route('admin.artikel')}}" class="bg-[#A5242D] text-center text-white w-48 py-4 rounded-2xl hover:bg-red-500 duration-300 ease-in-out">
                             <span class="text-base">Artikel</span>
                         </a>
                         <a href="" class="bg-red-600 text-center text-white px-4 py-4 rounded-2xl hover:bg-red-500 duration-300 ease-in-out">

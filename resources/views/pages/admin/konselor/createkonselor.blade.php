@@ -2,7 +2,7 @@
 @section('title', 'Tambah Konselor')
 @section('content')
 <div class="container mx-auto">
-    <a href="" class="flex justify-start items-center mt-4">
+    <a href="{{route('admin.konselor')}}" class="flex justify-start items-center mt-4">
         <div class="w-6 h-6">
             <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" fill="#000000">
                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>

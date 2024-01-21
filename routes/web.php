@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AuthKlienController;
 use App\Http\Controllers\RegisterController;
@@ -24,7 +25,12 @@ Route::post('/register', [AuthKlienController::class, 'store'])->name('register'
 Route::get('/login-admin', [AuthKlienController::class, 'indexAdmin'])->name('loginviewAdmin');
 Route::post('/login-admin', [AuthKlienController::class, 'AuthloginAdmin'])->name('loginAdmin');
 
+
 // klien
+Route::prefix('client')->group(function () {
+    Route::get('/beranda', [AdminController::class, 'berandaAdmin'])->name('admin.beranda');
+    
+});
 Route::get('/beranda', function () {
     return view('pages.klien.beranda');
 })->name('beranda');
@@ -57,19 +63,24 @@ Route::get('/jadwal', function () {
 Route::get('/admin/konselor', function () {
     return view('pages.admin.konselor.konselor');
 });
-
-Route::get('/admin/beranda', function () {
-    return view('pages.admin.beranda');
+//
+Route::prefix('admin')->group(function () {
+    Route::get('/beranda', [AdminController::class, 'berandaAdmin'])->name('admin.beranda');
+    //artikel
+    Route::get('/artikel', [AdminController::class,'artikelAdmin'])->name('admin.artikel');
+    Route::post('/artikel',[AdminController::class,'artikelStore'])->name('admin.artikel.store');
+    Route::get('/artikel/create',[AdminController::class,'artikelCreate'])->name('admin.artikel.create');
+    //konselor
+    Route::get('/konselor', [AdminController::class,'konselorAdmin'])->name('admin.konselor');
+    Route::post('/konselor',[AdminController::class,'konselorStore'])->name('admin.konselor.store');
+    Route::get('/konselor/create',[AdminController::class,'konselorCreate'])->name('admin.konselor.create');
 });
+
+
 
 Route::get('/admin/konselor/add', function () {
     return view('pages.admin.konselor.createkonselor');
 });
-
-Route::get('/admin/artikel', function () {
-    return view('pages.admin.artikel.artikel');
-});
-
 Route::get('/admin/artikel/add', function () {
     return view('pages.admin.artikel.createartikel');
 });

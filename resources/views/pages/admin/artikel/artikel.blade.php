@@ -2,7 +2,7 @@
 @section('title', 'Artikel')
 @section('content')
     <div class="container mx-auto py-10">
-        <a href="" class="flex justify-start items-center">
+        <a href="{{route('admin.beranda')}}" class="flex justify-start items-center">
             <div class="w-6 h-6">
                 <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" fill="#000000">
                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -17,7 +17,7 @@
             <h1 class="text-xl">Back</h1>
         </a>
         <h1 class="text-center font-semibold mt-4 text-xl">Data Artikel</h1>
-        <a href="" class="bg-red-400 rounded-2xl py-2 px-10  text-white mt-10 hover:bg-red-500 duration-300 ease-in-out " type="submit">Tambah</a>
+        <a href="{{route('admin.artikel.create')}}" class="bg-red-400 rounded-2xl py-2 px-10  text-white mt-10 hover:bg-red-500 duration-300 ease-in-out " type="submit">Tambah</a>
         <div class="relative overflow-x-auto mt-8">
             <table class="w-full text-sm text-gray-500 ">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700">

@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Klien;
 use App\Models\User;
-
+use Spatie\Permission\Models\Role;
 
 class AuthKlienController extends Controller
 {
@@ -22,40 +22,31 @@ class AuthKlienController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function AuthloginKlien(Request $request){
+    public function authlogin(Request $request){
     
-        $request->validate([
-            'email' => 'required',
-            'password' => 'required',
-        ]);
-        $credentials = $request->only('email', 'password');
-
-        $successLogin = Auth::guard('web')->attempt($credentials);
-
-        if ($successLogin) {
-            return redirect()->route('beranda')->with('success', 'Login berhasil');
-        } else {
-            return back()->withErrors(['login' => 'Email Atau Password Salah']);
-        }
-}
-    public function AuthloginAdmin(Request $request)
-    {
-
-        $request->validate([
-            'name' => 'required',
+        $credentials  = $request->validate([
+            'email' => 'required|email',
             'password' => 'required',
         ]);
 
-        $credentials = $request->only('name', 'password');
-
-        $successLogin = Auth::guard('admin')->attempt($credentials);
-
-        if ($successLogin) {
-            return redirect()->route('beranda')->with('success', 'Login berhasil');
-        } else {
-            return back()->withErrors(['login' => 'Nama Atau Password Salah']);
+        if (Auth::guard("web")->attempt($credentials)) {
+            $request->session()->regenerate();
+            return redirect()->intended(route('klien.beranda'));
         }
+
+        if (Auth::guard("admin")->attempt($credentials)) {
+            $request->session()->regenerate();
+            return redirect()->intended(route('admin.beranda'));
+        }
+
+        if (Auth::guard("konselor")->attempt($credentials)) {
+            $request->session()->regenerate();
+            return redirect()->intended(route('konselor.beranda'));
+        }
+
+        return back()->with("loginError", "Email Atau Password Salah");
     }
+
     public function logout(Request $request){
         Auth::logout();
         $request->session()->invalidate();
@@ -63,7 +54,10 @@ class AuthKlienController extends Controller
 
         return redirect()->route('login');
     }
+
     public function store(Request $request){
+
+        $role = Role::where('id',1)->first();
 
         $request->validate([
             'nama' => 'required',
@@ -71,19 +65,16 @@ class AuthKlienController extends Controller
             'alamat' => 'required',
             'jenis_kelamin' => 'required',
             'password' => 'required',
-            'konfirmasi_password' => 'required|same:password',
         ]);
-        $data = new Klien();
-        $data->nama = $request->nama;
-        $data->email = $request->email;
-        $data->alamat = $request->alamat;
-        $data->jenis_kelamin = $request->jenis_kelamin;
-        $data->password = $request->password;
-        $data->save();
+
+        $user = Klien::create($request->all());
+
+        $user->assignRole($role);
+
         return redirect('/login')->with('registerSukses', 'Akun Berhasil dibuat');
     }
     public function show(){
-        return view('pages.user.register');
+        return view('pages.klien.register');
     }
     
 }

@@ -33,9 +33,9 @@
                             <select
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 shadow-sm "
                                 name="jenis_kelamin" id="jenis_kelamin">
-                                <option value=""></option>
-                                <option value="pria">Pria</option>
-                                <option value="wanita">Wanita</option>
+                                <option value="">Pilih Gender</option>
+                                <option value="1">Pria</option>
+                                <option value="0">Wanita</option>
                             </select>
                         </div>
                         
@@ -47,7 +47,7 @@
                         </div>
                         <div class="mb-4">
                             <button class="bg-red-400 text-white w-full rounded-3xl py-3 hover:bg-red-500 duration-300"
-                                type="submit">Masuk</button>
+                                type="submit">Register</button>
                         </div>
                         <div class="flex justify-center items-center ">
                             <a href="{{route('loginview')}}" class="underline text-red-400">Sudah Memiliki Akun?</a>

@@ -21,11 +21,10 @@ use App\Http\Controllers\KonselorController;
 */
 
 Route::get('/login',  [AuthKlienController::class, 'index'])->name('loginview');
-Route::post('/login', [AuthKlienController::class, 'AuthloginKlien'])->name('login');
+Route::post('/login', [AuthKlienController::class, 'authlogin'])->name('login');
 Route::get('/logout', [AuthKlienController::class, 'logout'])->name('logout');
 Route::get('/register', [AuthKlienController::class, 'show'])->name('registerview');
 Route::post('/register', [AuthKlienController::class, 'store'])->name('register');
-Route::post('/login-admin', [AuthKlienController::class, 'AuthloginAdmin'])->name('loginAdmin');
 
 
 // klien

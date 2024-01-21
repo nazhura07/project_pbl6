@@ -23,7 +23,7 @@
                 @csrf
                 <div class="">
                     <h1>Nama Lengkap</h1>
-                    <input type="text" id="name" name="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 shadow-sm " placeholder="Nama Lengkap" required>
+                    <input type="text" id="nama" name="nama" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 shadow-sm " placeholder="Nama Lengkap" required>
                 </div>
                 <div class="">
                     <h1>Spesialis</h1>
@@ -39,8 +39,9 @@
                 </div>
                 <div class="">
                     <h1>Pendidikan Terakhir</h1>
-                    <input type="text" id="text" name="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 shadow-sm " placeholder="Pendidikan Terakhir" required>
+                    <input type="text" id="pendidikan_terakhir" name="pendidikan_terakhir" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 shadow-sm " placeholder="Pendidikan Terakhir" required>
                 </div>
+                
                 <div class="">
                     <h1>Jenis Kelamin</h1>
                     <select id="jenis_kelamin" name="jenis kelamin" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">

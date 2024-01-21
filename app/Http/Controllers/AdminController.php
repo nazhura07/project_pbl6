@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Users;
+use App\Models\Konselor;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -27,8 +28,33 @@ class AdminController extends Controller
         return view('pages.admin.artikel.createartikel');
     }
 
-    public function artikelStore(){
+    public function artikelStore(Request $request){
 
+        $request->validate([
+            'nama' => 'required',
+            'email' => 'required|email',
+            'pendidikan_terakhir' => 'required',
+            'alamat' => 'required',
+            'spesialis' => 'required|string',
+            'jenis_kelamin' => 'required',
+            'foto' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+
+        // Proses penyimpanan data konselor ke dalam database
+        $fotoPath = $request->file('foto')->store('konselor_photos', 'public');
+
+        Konselor::create([
+            'nama' => $request->input('nama'),
+            'spesialisasi' => $request->input('spesialis'),
+            'alamat' => $request->input('alamat'),
+            'email' => $request->input('email'),
+            'pendidikan_terakhir' => $request->input('pendidikan_terakhir'),
+            'jenis_kelamin' => $request->input('jenis_kelamin'),
+            'foto' => $fotoPath,
+        ]);
+
+        // Redirect kembali ke halaman dengan pesan sukses
+        return redirect()->route('admin.konselor')->with('success', 'Konselor berhasil ditambahkan!');
     }
 
     public function konselorAdmin()

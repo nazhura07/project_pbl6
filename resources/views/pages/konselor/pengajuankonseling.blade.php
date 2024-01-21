@@ -1,8 +1,8 @@
 @extends('layout.pages')
-@section('title', 'Pengajuan Konseling')
+@section('title', 'Pengajuan')
 @section('content')
     <div class="container mx-auto py-10">
-        <a href="{{route('konselor.beranda')}}" class="flex justify-start items-center">
+        <a href="{{ route('konselor.beranda') }}" class="flex justify-start items-center">
             <div class="w-6 h-6">
                 <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" fill="#000000">
                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -17,7 +17,7 @@
             <h1 class="text-xl">Back</h1>
         </a>
         <h1 class="text-center font-semibold mt-4 text-xl">Pengajuan Konseling</h1>
-        
+
         <div class="relative overflow-x-auto mt-8">
             <table class="w-full text-sm text-gray-500 ">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700">
@@ -80,14 +80,27 @@
                                 <button type="submit"
                                     class="bg-red-500 text-white text-center py-2 w-32  hover:bg-red-400 rounded-xl duration-300 ease-in-out">
                                     Ditolak
-
-                                    <button type="submit"
-                                        class="bg-green-500 text-white text-center py-2 w-32  hover:bg-green-400 rounded-xl duration-300 ease-in-out">
-                                        Diterima
-                                {{-- <p class="text-green-500 text-center">Telah Diterima</p> --}}
-                                {{-- <p class="text-red-500 text-center">Telah Ditolak</p> --}}
-                            </td>
+                                </button>
                         </form>
+                        <form action="" method="post">
+                            @csrf
+                            @method('PUT')
+                            <button type="submit"
+                                class="bg-green-500 text-white text-center py-2 w-32  hover:bg-green-400 rounded-xl duration-300 ease-in-out">
+                                Diterima
+                            </button>
+                        </form>
+                        <form action="" method="post">
+                            @csrf
+                            @method('PUT')
+
+                            <button 
+                                class="bg-blue-500 text-white text-center py-2 w-32  hover:bg-blue-400 rounded-xl duration-300 ease-in-out">
+                                Selesai</button>
+                        </form>
+                        {{-- <p class="text-green-500 text-center">Telah Diterima</p> --}}
+                        {{-- <p class="text-red-500 text-center">Telah Ditolak</p> --}}
+                        </td>
                     </tr>
 
                 </tbody>

@@ -3,7 +3,7 @@
 @section('content')
     <div class="bg-[#F0CDCF] h-screen">
         <div class="container mx-auto py-8">
-            <a href="{{route('klien.konselor')}}" class="flex justify-start items-center">
+            <a href="{{ route('klien.konselor') }}" class="flex justify-start items-center">
                 <div class="w-6 h-6">
                     <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" fill="#000000">
                         <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -21,10 +21,11 @@
         <div class="flex justify-center items-center">
             <div class="bg-white rounded-2xl py-4 px-10">
                 <h1 class="text-center font-semibold text-2xl mb-10">Buat Janji Temu</h1>
-                <p class="text-center">Buat Janji Temu dengan <br> <span class="text-red-400 text-xl">{{$konselor->nama}}</span> </p>
+                <p class="text-center">Buat Janji Temu dengan <br> <span
+                        class="text-red-400 text-xl">{{ $konselor->nama }}</span> </p>
                 {{-- {{$konselor->jamKonselings}} --}}
                 <div class="">
-                  
+
 
                 </div>
                 <h1 class="text-center mt-4 font-semibold text-lg mb-4">Pilih Jam</h1>
@@ -32,27 +33,31 @@
                     @csrf
                     <div class="w-full grid grid-cols-1 gap-4">
                         @foreach ($konselor->jamKonselings as $data)
-                        {{-- <p>{{$data}}</p> --}}
-                        <label class="cursor-pointer">
-                            <input type="radio" id="jam" value="1" class="peer sr-only" name="jam" />
-                            <div
-                                class="w-full max-w-xl rounded-md bg-gray-50 p-5 text-gray-600 ring-2 ring-transparent transition-all hover:shadow shadow-md  
-                        peer-checked:bg-blue-500 peer-checked:text-gray-50 peer-checked:ring-blue-500 peer-checked:ring-offset-2  peer-checked:shadow-md peer-checked:shadow-blue-700 ">
-                                <div class="flex flex-col gap-1">
-                                    <div class="flex items-center justify-between">
-                                            
-                                        <p class="text-sm font-semibold uppercase  peer-checked:text-sky-700">{{ date('d F Y', strtotime($data->tanggal)) }}
-                                            {{ \Carbon\Carbon::parse($data->waktu_awal)->format('H:i') }}
-                                            - {{ \Carbon\Carbon::parse($data->waktu_akhir)->format('H:i') }}
-                                        </p>
+                            {{-- <p>{{ $data->id }}</p> --}}
+                            <label class="cursor-pointer">
+                                <input type="radio" id="jam_konseling" value="{{ $data->id }}" class="peer sr-only"
+                                    name="jam" />
+                                {{-- <input type="hidden" name="tanggal[]" value="{{ $data->tanggal }}">
+                                <input type="hidden" name="waktu_awal[]" value="{{ $data->waktu_awal }}">
+                                <input type="hidden" name="waktu_akhir[]" value="{{ $data->waktu_akhir }}"> --}}
+                                <div
+                                    class="w-full max-w-xl rounded-md bg-gray-50 p-5 text-gray-600 ring-2 ring-transparent transition-all hover:shadow shadow-md peer-checked:bg-blue-500 peer-checked:text-gray-50 peer-checked:ring-blue-500 peer-checked:ring-offset-2  peer-checked:shadow-md peer-checked:shadow-blue-700">
+                                    <div class="flex flex-col gap-1">
+                                        <div class="flex items-center justify-between">
+                                            <p class="text-sm font-semibold uppercase  peer-checked:text-sky-700">
+                                                {{ date('d F Y', strtotime($data->tanggal)) }}
+                                                {{ \Carbon\Carbon::parse($data->waktu_awal)->format('H:i') }}
+                                                - {{ \Carbon\Carbon::parse($data->waktu_akhir)->format('H:i') }}
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </label>
+                            </label>
                         @endforeach
-                        
                     </div>
-                    <button class="bg-red-400 rounded-2xl py-4 w-full text-white mt-10 hover:bg-red-500 duration-300 ease-in-out" type="submit">Ajukan Sesi</button>
+                    <button
+                        class="bg-red-400 rounded-2xl py-4 w-full text-white mt-10 hover:bg-red-500 duration-300 ease-in-out"
+                        type="submit">Ajukan Sesi</button>
                 </form>
             </div>
         </div>

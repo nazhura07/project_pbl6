@@ -43,6 +43,7 @@ Route::prefix('client')->group(function () {
     Route::patch('/jadwal/{id}', [KlienController::class, 'ubahjadwal'])->name('klien.ubahjadwal');
     Route::get('/jadwal/{id}/rating',[KlienController::class,'ratingKlien'])->name('klien.rating');
     Route::post('/jadwal/{id}/rating',[KlienController::class,'ratingKlienStore'])->name('klien.ratingstore');
+    
 });
 
 //admin

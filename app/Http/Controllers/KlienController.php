@@ -40,8 +40,9 @@ class KlienController extends Controller
         // dd($konselor);
         return view('pages.klien.janjitemu', compact('konselor'));
     }
-    public function janjitamuKlienStore($id){
-        
+    public function janjitamuKlienStore( Request $request,$id){
+        $data = JamKonseling::findorFail($request->jam);
+        dd($data);
     }
 
     public function jadwal(){

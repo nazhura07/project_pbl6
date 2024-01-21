@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('konselors', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
+            $table->string('password');
             $table->string('email')->unique();
             $table->string('pendidikan_terakhir');
             $table->string('alamat');

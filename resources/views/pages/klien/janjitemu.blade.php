@@ -1,5 +1,5 @@
 @extends('layout.pages')
-@section('title', 'Detail Profil')
+@section('title', 'Janji Temu')
 @section('content')
     <div class="bg-[#F0CDCF] h-screen">
         <div class="container mx-auto py-8">

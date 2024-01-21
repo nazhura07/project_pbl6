@@ -16,11 +16,7 @@ class AuthKlienController extends Controller
      */
    public function index()
     {
-        return view('pages.user.login');
-    }
-    public function indexAdmin()
-    {
-        return view('pages.admin.login');
+        return view('pages.login');
     }
 
     /**

@@ -3,17 +3,25 @@
 namespace App\Http\Controllers;
 
 use App\Models\Klien;
+use App\Models\Artikel;
 use App\Http\Requests\StoreKlienRequest;
 use App\Http\Requests\UpdateKlienRequest;
+use App\Models\Konselor;
 
 class KlienController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function artikel()
     {
-        //
+        $artikels = Artikel::all();
+        return view('pages.klien.artikel', compact('artikels'));
+    }
+    public function detailProfile()
+    {
+        $data = Konselor::all();
+        return view('pages.klien.detailprofile', compact('data'));
     }
 
     /**

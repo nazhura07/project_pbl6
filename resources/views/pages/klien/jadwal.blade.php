@@ -3,7 +3,7 @@
 @section('content')
     <div class="bg-[#F0CDCF] h-screen">
         <div class="container mx-auto py-8">
-            <a href="" class="flex justify-start items-center">
+            <a href="{{route('klien.beranda')}}" class="flex justify-start items-center">
                 <div class="w-6 h-6">
                     <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" fill="#000000">
                         <g id="SVGRepo_bgCarrier" stroke-width="0"></g>

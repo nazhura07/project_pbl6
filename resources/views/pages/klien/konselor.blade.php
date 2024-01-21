@@ -3,7 +3,7 @@
 @section('content')
     <div class="bg-[#F0CDCF] h-full">
         <div class="container mx-auto py-8">
-            <a href="" class="flex justify-start items-center">
+            <a href="{{route('klien.beranda')}}" class="flex justify-start items-center">
                 <div class="w-6 h-6">
                     <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" fill="#000000">
                         <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -27,7 +27,7 @@
                             <h1>DR JOKO Maulana</h1>
                             <h3>Spesialis Bimbingan Keluarga</h3>
                         </div>
-                        <a href="" class="w-full flex justify-center items-center bg-red-500 py-2 rounded-b-3xl">
+                        <a href="{{route('klien.konselor.detail',1)}}" class="w-full flex justify-center items-center bg-red-500 py-2 rounded-b-3xl">
                             <span class="text-white text-center">Lihat Profil</span>
                         </a>
                     </div>

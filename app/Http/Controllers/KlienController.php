@@ -13,62 +13,35 @@ class KlienController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function artikel()
+    public function berandaKlien(){
+        return view('pages.klien.beranda');
+    }
+    public function artikelKlien()
     {
         $artikels = Artikel::all();
         return view('pages.klien.artikel', compact('artikels'));
     }
-    public function detailProfile()
+    public function konselorKlien(){
+        // $data = Konselor::all();
+        return view('pages.klien.konselor');
+    }
+    public function detailProfileKonselor($id)
     {
-        $data = Konselor::all();
         return view('pages.klien.detailprofile', compact('data'));
     }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function janjitamuKlien($id)
     {
-        //
+        return view('pages.klien.janjitemu');
+    }
+    public function janjitamuKlienStore($id){
+        
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(StoreKlienRequest $request)
-    {
-        //
+    public function jadwal(){
+        return view('pages.klien.jadwal');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Klien $klien)
-    {
-        //
-    }
+    public function ubahjadwal($id){
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Klien $klien)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(UpdateKlienRequest $request, Klien $klien)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Klien $klien)
-    {
-        //
     }
 }

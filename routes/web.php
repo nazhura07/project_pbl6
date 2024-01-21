@@ -28,39 +28,21 @@ Route::post('/login-admin', [AuthKlienController::class, 'AuthloginAdmin'])->nam
 
 // klien
 Route::prefix('client')->group(function () {
-    Route::get('/beranda', [AdminController::class, 'berandaAdmin'])->name('admin.beranda');
-    
+    Route::get('/beranda', [KlienController::class, 'berandaKlien'])->name('klien.beranda');
+    //artikel
+    Route::get('/artikel', [KlienController::class, 'artikelKlien'])->name('klien.artikel');
+    //konseling
+    Route::get('/konselor', [KlienController::class, 'konselorKlien'])->name('klien.konselor');
+    Route::get('/konselor/{id}', [KlienController::class, 'detailProfileKonselor'])->name('klien.konselor.detail');
+    Route::get('/konselor/{id}/janji-temu', [KlienController::class, 'janjitamuKlien'])->name('klien.konselor.janjitemu');
+    Route::post('/konselor/{id}/janji-temu', [KlienController::class, 'janjitamuKlienStore'])->name('klien.konselor.janjitemuStore');
+    //scahdule
+    Route::get('/jadwal', [KlienController::class, 'jadwal'])->name('klien.jadwal');
+    Route::patch('/jadwal/{id}', [KlienController::class, 'ubahjadwal'])->name('klien.ubahjadwal');
+
 });
-Route::get('/beranda', function () {
-    return view('pages.klien.beranda');
-})->name('beranda');
-
-Route::get('/konselor', function () {
-    return view('pages.klien.konselor');
-});
-
-Route::get('/artikel', [KlienController::class, 'artikel'])->name('artikel');
-Route::get('/detail-profile', [KlienController::class, 'detailProfile'])->name('artikel');
-
-
-
-
-Route::get('/janji-temu', function () {
-    return view('pages.klien.janjitemu');
-});
-
-
-Route::get('/jadwal', function () {
-    return view('pages.klien.jadwal');
-});
-
 
 //admin
-
-Route::get('/admin/konselor', function () {
-    return view('pages.admin.konselor.konselor');
-});
-//
 Route::prefix('admin')->group(function () {
     Route::get('/beranda', [AdminController::class, 'berandaAdmin'])->name('admin.beranda');
     //artikel

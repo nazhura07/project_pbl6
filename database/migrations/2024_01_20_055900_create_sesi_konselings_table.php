@@ -18,12 +18,11 @@ return new class extends Migration
             $table->date('tanggal');
             $table->time('waktu_mulai');
             $table->time('waktu_selesai');
-            $table->unsignedBigInteger('kategori_id');
             $table->boolean('status');
 
             $table->foreign('konselor_id')->references('id')->on('konselors')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('klien_id')->references('id')->on('kliens')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('kategori_id')->references('id')->on('kategori_masalahs')->onDelete('cascade')->onUpdate('cascade');
+
 
             $table->timestamps();
         });

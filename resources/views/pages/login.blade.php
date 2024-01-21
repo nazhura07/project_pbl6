@@ -1,5 +1,5 @@
 @extends('layout.pages')
-@section('title','login Admin')
+@section('title','Login')
 @section('content')
 <div class="bg-[#F0CDCF] h-screen flex justify-center items-center">
     <div class="bg-slate-50 p-10 rounded-3xl shadow-lg">

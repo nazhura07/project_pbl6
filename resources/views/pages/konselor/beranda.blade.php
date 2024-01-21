@@ -1,5 +1,5 @@
 @extends('layout.pages')
-@section('title', 'love & lern')
+@section('title', 'Love & Learn')
 @section('content')
     <div class="">
         {{-- section 1 --}}

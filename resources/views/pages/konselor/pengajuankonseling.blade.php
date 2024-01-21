@@ -1,5 +1,5 @@
 @extends('layout.pages')
-@section('title', 'Artikel')
+@section('title', 'Pengajuan Konseling')
 @section('content')
     <div class="container mx-auto py-10">
         <a href="{{route('konselor.beranda')}}" class="flex justify-start items-center">

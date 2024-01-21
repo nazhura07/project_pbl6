@@ -1,5 +1,5 @@
 @extends('layout.pages')
-@section('title', 'love & lern')
+@section('title', 'Love & Learn')
 @section('content')
     <div class="">
         <div class="bg-[#E81D25] flex justify-end pr-10 items-center py-8 gap-8 ">

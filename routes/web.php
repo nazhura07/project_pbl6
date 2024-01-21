@@ -33,11 +33,10 @@ Route::get('/konselor', function () {
     return view('pages.klien.konselor');
 });
 
-Route::get('/artikel', [KlienController::class, 'index'])->name('artikel');
+Route::get('/artikel', [KlienController::class, 'artikel'])->name('artikel');
+Route::get('/detail-profile', [KlienController::class, 'detailProfile'])->name('artikel');
 
-Route::get('/detail-profile', function () {
-    return view('pages.klien.detailprofile');
-});
+
 
 
 Route::get('/janji-temu', function () {

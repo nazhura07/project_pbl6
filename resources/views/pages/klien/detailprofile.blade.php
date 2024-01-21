@@ -21,6 +21,8 @@
         <div class="flex justify-center items-center">
             <div class="bg-white rounded-2xl py-4 px-10">
                 <h1 class="text-center font-semibold text-2xl mb-10">Detail Profile</h1>
+                @foreach ($data as $data) 
+                    
                 <div class="grid grid-cols-7 gap-20">
                     <div class="flex flex-col bg-white rounded-3xl w-72 overflow-hidden col-span-2">
                         <div class="h-72"
@@ -124,6 +126,8 @@
                                     ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
                                     ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                             </div>
+                @endforeach
+
                         </div>
                     </div>
                 </div>

@@ -27,9 +27,10 @@ Route::get('/register', [AuthKlienController::class, 'show'])->name('registervie
 Route::post('/register', [AuthKlienController::class, 'store'])->name('register');
 Route::post('/login-admin', [AuthKlienController::class, 'AuthloginAdmin'])->name('loginAdmin');
 
+Route::get('/', [AuthKlienController::class, 'homeKlien'])->name('klien.home');
 
-// klien
 Route::prefix('client')->group(function () {
+    // klien
     Route::get('/beranda', [KlienController::class, 'berandaKlien'])->name('klien.beranda');
     //artikel
     Route::get('/artikel', [KlienController::class, 'artikelKlien'])->name('klien.artikel');

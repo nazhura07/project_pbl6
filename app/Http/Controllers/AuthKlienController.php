@@ -18,6 +18,10 @@ class AuthKlienController extends Controller
     {
         return view('pages.login');
     }
+    public function homeKlien()
+    {
+        return view('pages.klien.home');
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -33,7 +37,7 @@ class AuthKlienController extends Controller
         $successLogin = Auth::guard('web')->attempt($credentials);
 
         if ($successLogin) {
-            return redirect()->route('beranda')->with('success', 'Login berhasil');
+            return redirect()->route('klien.beranda')->with('success', 'Login berhasil');
         } else {
             return back()->withErrors(['login' => 'Email Atau Password Salah']);
         }
@@ -61,7 +65,7 @@ class AuthKlienController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect()->route('login');
+        return redirect()->route('klien.home')->with('success', 'Logout Berhasil');
     }
     public function store(Request $request){
 
@@ -71,7 +75,6 @@ class AuthKlienController extends Controller
             'alamat' => 'required',
             'jenis_kelamin' => 'required',
             'password' => 'required',
-            'konfirmasi_password' => 'required|same:password',
         ]);
         $data = new Klien();
         $data->nama = $request->nama;
@@ -83,7 +86,7 @@ class AuthKlienController extends Controller
         return redirect('/login')->with('registerSukses', 'Akun Berhasil dibuat');
     }
     public function show(){
-        return view('pages.user.register');
+        return view('pages.klien.register');
     }
     
 }

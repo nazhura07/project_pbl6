@@ -46,12 +46,6 @@
                                 placeholder="password" >
                         </div>
                         <div class="mb-4">
-                            <label for="konfirmasi_password" class="block text-sm font-medium text-gray-700">Konfirmasi Password</label>
-                            <input type="password" id="password" name="konfirmasi_password"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 shadow-sm "
-                                placeholder="konfirmasi password" >
-                        </div>
-                        <div class="mb-4">
                             <button class="bg-red-400 text-white w-full rounded-3xl py-3 hover:bg-red-500 duration-300"
                                 type="submit">Masuk</button>
                         </div>

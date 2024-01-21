@@ -69,15 +69,12 @@ class AuthKlienController extends Controller
             'alamat' => 'required',
             'jenis_kelamin' => 'required',
             'password' => 'required',
-            'konfirmasi_password' => 'required|same:password',
         ]);
-        $data = new Klien();
-        $data->nama = $request->nama;
-        $data->email = $request->email;
-        $data->alamat = $request->alamat;
-        $data->jenis_kelamin = $request->jenis_kelamin;
-        $data->password = $request->password;
-        $data->save();
+        
+        $user = Klien::create($request->all());
+
+        $user->assignRole($role);
+
         return redirect('/login')->with('registerSukses', 'Akun Berhasil dibuat');
     }
     public function show(){

@@ -1,9 +1,10 @@
 <?php
 
-use App\Http\Controllers\AuthController;
-use App\Http\Controllers\AuthKlienController;
-use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\KlienController;
+use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\AuthKlienController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,7 +22,6 @@ Route::post('/login', [AuthKlienController::class, 'AuthloginKlien'])->name('log
 Route::get('/logout', [AuthKlienController::class, 'logout'])->name('logout');
 Route::get('/register', [AuthKlienController::class, 'show'])->name('registerview');
 Route::post('/register', [AuthKlienController::class, 'store'])->name('register');
-Route::get('/login-admin', [AuthKlienController::class, 'indexAdmin'])->name('loginviewAdmin');
 Route::post('/login-admin', [AuthKlienController::class, 'AuthloginAdmin'])->name('loginAdmin');
 
 // klien
@@ -33,9 +33,7 @@ Route::get('/konselor', function () {
     return view('pages.klien.konselor');
 });
 
-Route::get('/artikel', function () {
-    return view('pages.klien.artikel');
-});
+Route::get('/artikel', [KlienController::class, 'index'])->name('artikel');
 
 Route::get('/detail-profile', function () {
     return view('pages.klien.detailprofile');

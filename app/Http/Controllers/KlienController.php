@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Klien;
+use App\Models\Artikel;
 use App\Http\Requests\StoreKlienRequest;
 use App\Http\Requests\UpdateKlienRequest;
 
@@ -13,7 +14,8 @@ class KlienController extends Controller
      */
     public function index()
     {
-        //
+        $artikels = Artikel::all();
+        return view('pages.klien.artikel', compact('artikels'));
     }
 
     /**

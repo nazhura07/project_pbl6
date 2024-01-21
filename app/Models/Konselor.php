@@ -3,21 +3,16 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use Laravel\Sanctum\HasApiTokens;
+use Spatie\Permission\Traits\HasRoles;
 
-class Konselor extends Model
+class Konselor extends Authenticatable
 {
-    use HasFactory;
+    use HasApiTokens, HasFactory, Notifiable , HasRoles;
 
-    protected $fillable = [
-        'nama',
-        'email',
-        'pendidikan_terakhir',
-        'alamat',
-        'status',
-        'spesialisasi', 
-        'foto',
-    ];
+    protected $guarded = [];
 
     protected $casts = [
         'status' => 'boolean',

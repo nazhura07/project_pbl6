@@ -1,9 +1,9 @@
 <?php
 
-use App\Http\Controllers\ApiArtikelController;
-use App\Http\Controllers\ApiAuthController;
-use App\Http\Controllers\ApiDokterController;
-use App\Http\Controllers\ApiHomeController;
+use App\Http\Controllers\api\ApiArtikelController;
+use App\Http\Controllers\api\ApiAuthController;
+use App\Http\Controllers\api\ApiDokterController;
+use App\Http\Controllers\api\ApiHomeController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\YourController;
@@ -19,12 +19,13 @@ use App\Http\Controllers\YourController;
 */
 
 Route::post('/login',[ApiAuthController::class,'AuthLogin']);
-Route::post('/logout',[ApiAuthController::class,'logout']);
+
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('/home', [ApiHomeController::class, 'index']);
     Route::get('/artikel', [ApiArtikelController::class, 'index']);
     Route::get('/konselor', [ApiDokterController::class, 'index']);
     Route::get('/konselor/{id}', [ApiDokterController::class, 'show']);
+    Route::post('/logout',[ApiAuthController::class,'logout']);
 });
 

@@ -16,25 +16,6 @@ class AdminController extends Controller
     {
         return view('pages.admin.beranda');
     }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function artikelAdmin()
-    {
-        return view('pages.admin.artikel.artikel');
-    }
-
-    public function artikelCreate()
-    {
-        return view('pages.admin.artikel.createartikel');
-    }
-
-    public function artikelStore(Request $request)
-    {
-
-    }
-
     public function konselorAdmin()
     {
         $konselors = Konselor::all();

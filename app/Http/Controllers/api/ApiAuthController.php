@@ -70,4 +70,57 @@ class ApiAuthController extends Controller
 
         return response()->json(['status' => 200, 'message' => 'Logged out successfully'], 200);
     }
+    public function register(Request $request)
+    {
+        // Validation rules for registration
+        $rules = [
+            'nama' => 'required',
+            'email' => 'required|email|unique:kliens',
+            'alamat' => 'required',
+            'password' => 'required|min:8',
+        ];
+
+        // Validation messages
+        $messages = [
+            'nama.required' => 'Kolom Nama wajib diisi.',
+            'email.required' => 'Kolom Email wajib diisi.',
+            'email.email' => 'Format Email tidak valid.',
+            'email.unique' => 'Email sudah terdaftar.',
+            'alamat.required' => 'Kolom Alamat wajib diisi.',
+            'password.required' => 'Kolom Password wajib diisi.',
+            'password.min' => 'Password minimal 8 karakter.',
+        ];
+
+        // Validate the request
+        $validator = validator($request->all(), $rules, $messages);
+
+        // Custom validation error response
+        if ($validator->fails()) {
+            throw new HttpResponseException(response([
+                'errors' => $validator->getMessageBag(),
+            ]));
+        }
+
+        // Get validated data
+        $data = $validator->validated();
+
+        // Create a new user
+        $user = Klien::create([
+            'nama' => $data['nama'],
+            'email' => $data['email'],
+            'alamat' => $data['alamat'],
+            'password' => Hash::make($data['password']),
+        ]);
+
+        // Create token for the registered user
+        $token = $user->createToken('api-token')->plainTextToken;
+
+        // Add the token to the response
+        $response = [
+            'user' => $user,
+            'token' => $token,
+        ];
+
+        return response()->json($response, 201);
+    }
 }

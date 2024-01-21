@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('gambar',255);
             $table->string('judul',255 );            
             $table->longtext('deskripsi');
+            $table->string('link',255);
             $table->timestamps();
         });
     }

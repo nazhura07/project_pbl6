@@ -2,8 +2,9 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Artikel;
 use Illuminate\Database\Seeder;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class ArtikelSeeder extends Seeder
 {
@@ -12,6 +13,7 @@ class ArtikelSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        Artikel::factory()->count(10)->create();
+
     }
 }

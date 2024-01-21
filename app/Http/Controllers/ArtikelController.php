@@ -13,7 +13,8 @@ class ArtikelController extends Controller
      */
     public function index()
     {
-        //
+        $artikels = Artikel::all();
+        return view('pages.user.artikel', compact('artikels'));
     }
 
     /**

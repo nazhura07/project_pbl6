@@ -33,6 +33,11 @@ class AuthKlienController extends Controller
             'password' => 'required',
         ]);
 
+        if (Auth::guard("web")->attempt($credentials)) {
+            $request->session()->regenerate();
+            return redirect()->intended(route('klien.beranda'));
+        }
+
         if (Auth::guard("admin")->attempt($credentials)) {
             $request->session()->regenerate();
             return redirect()->intended(route('admin.beranda'));

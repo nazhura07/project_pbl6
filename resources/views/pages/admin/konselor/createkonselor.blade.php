@@ -41,6 +41,10 @@
                     <h1>Pendidikan Terakhir</h1>
                     <input type="text" id="pendidikan_terakhir" name="pendidikan_terakhir" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 shadow-sm " placeholder="Pendidikan Terakhir" required>
                 </div>
+                <div class="">
+                    <h1>Password</h1>
+                    <input type="password" id="password" name="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 shadow-sm " placeholder="Password" required>
+                </div>
                 
                 <div class="">
                     <h1>Foto</h1>

@@ -85,6 +85,7 @@ class AdminController extends Controller
             'pendidikan_terakhir' => 'required',
             'alamat' => 'required',
             'spesialis' => 'required|string',
+            'password' => 'required',
             'foto' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
@@ -97,6 +98,7 @@ class AdminController extends Controller
             'alamat' => $request->input('alamat'),
             'email' => $request->input('email'),
             'pendidikan_terakhir' => $request->input('pendidikan_terakhir'),
+            'password' => bcrypt($request->input('password')),
             'foto' => $fotoPath,
             'status' => true,
         ]);

@@ -20,6 +20,8 @@ class Konselor extends Model
         'surat_izin',
         'nomor_telepon',
         'status',
+        'spesialisasi', 
+        'foto',
     ];
 
     protected $casts = [

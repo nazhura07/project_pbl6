@@ -18,10 +18,12 @@ return new class extends Migration
             $table->string('pendidikan_terakhir');
             $table->string('alamat');
             $table->string('tanggal_lahir');
-            $table->string('tahun_lulus');
+            $table->string('spesialisasi');
             $table->string('ijazah_profesi');
+            $table->string('tahun_lulus');
             $table->string('surat_izin');
             $table->string('nomor_telepon');
+            $table->string('foto');
             $table->boolean('status');
             $table->timestamps();
         });

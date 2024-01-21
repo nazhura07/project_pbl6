@@ -44,4 +44,32 @@ class KlienController extends Controller
     public function ubahjadwal($id){
 
     }
+    public function create()
+    {
+        return view('janji_temu.create');
+    }
+
+    public function store(Request $request)
+    {
+        // Validate the form data
+        $data = $request->validate([
+            'tanggal' => 'required|date',
+            'jam' => 'required|in:1,2,3,4,5,6', // Add any other validation rules as needed
+        ]);
+
+        // Process the form submission and store the data in the database
+        // You can customize this part based on your needs
+
+        // Example: Create a new JanjiTemu record in the database
+        $janjiTemu = new SesiKonseling([
+            'tanggal' => $data['tanggal'],
+            'waktu_mulai' => $data[''],
+        ]);
+
+        $janjiTemu->save();
+
+        // You can redirect to a success page or do other actions here
+        return redirect()->route('success')->with('success', 'Janji Temu berhasil dibuat!');
+    }
+
 }

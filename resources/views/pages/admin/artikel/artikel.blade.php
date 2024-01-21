@@ -45,9 +45,6 @@
                         <th scope="col" class="px-6 py-3 text-left">
                             Link Artikel
                         </th>
-                        <th scope="col" class="px-6 py-3 text-left">
-                            Aksi
-                        </th>
                     </tr>
                 </thead>
 
@@ -71,17 +68,7 @@
                                 https://www.halodoc.com/artikel/diare-tak-kunjung-berhenti-saatnya-hubungi-5-dokter-ini
                             </a>
                         </td>
-                        <td class="px-6 py-4 flex justify-center items-center gap-4">
-                            <a href="" class="bg-blue-500 text-white text-center py-2 w-28  hover:bg-blue-400 rounded-xl duration-300 ease-in-out">
-                                Edit
-                            </a>
-                            <form action="" method="post">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit"
-                                    class="bg-red-500 text-white py-2 w-28  hover:bg-red-400 rounded-xl duration-300 ease-in-out">Batalkan</button>
-                            </form>
-                        </td>
+
                     </tr>
                     
                 </tbody>

@@ -25,12 +25,14 @@ class AdminController extends Controller
         return view('pages.admin.artikel.artikel');
     }
 
-    public function artikelCreate(){
+    public function artikelCreate()
+    {
         return view('pages.admin.artikel.createartikel');
     }
 
-    public function artikelStore(Request $request){
-        
+    public function artikelStore(Request $request)
+    {
+
     }
 
     public function konselorAdmin()
@@ -39,7 +41,8 @@ class AdminController extends Controller
         return view('pages.admin.konselor.konselor', compact('konselors'));
     }
 
-    public function konselorCreate(){
+    public function konselorCreate()
+    {
         return view('pages.admin.konselor.createkonselor');
     }
 
@@ -47,7 +50,7 @@ class AdminController extends Controller
     {
         $konselors = Konselor::findOrFail($konselor)->first();
         // dd($konselors) ;
-        return view('pages.admin.konselor.editkonselor',compact('konselors'));
+        return view('pages.admin.konselor.editkonselor', compact('konselors'));
     }
     public function konselorUpdate(Request $request, $konselor)
     {
@@ -92,7 +95,8 @@ class AdminController extends Controller
     }
 
 
-    public function konselorStore(Request $request){
+    public function konselorStore(Request $request)
+    {
         // dd($request->all());
         $request->validate([
             'nama' => 'required',

@@ -2,7 +2,7 @@
 @section('title', 'Artikel')
 @section('content')
     <div class="container mx-auto py-10">
-        <a href="{{route('admin.beranda')}}" class="flex justify-start items-center">
+        <a href="{{route('admin.beranda')}}" class="flex w-fit justify-start items-center">
             <div class="w-6 h-6">
                 <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" fill="#000000">
                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -26,7 +26,6 @@
                             <span class="text-left">
                                 NO
                             </span>
-
                         </th>
                         <th scope="col" class="px-6 py-3 text-left">
                             <span class="text-left">
@@ -45,32 +44,45 @@
                         <th scope="col" class="px-6 py-3 text-left">
                             Link Artikel
                         </th>
+                        <th scope="col" class="px-6 py-3 text-left">
+                            Aksi
+                        </th>
                     </tr>
                 </thead>
 
                 <tbody>
+                    @foreach ($data as $items )
+                   
                     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                         <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            1
+                            {{$loop->iteration}}
                         </th>
                         <td class="px-6 py-4">
-                            <div class="h-10 w-10 rounded-full" style="background-image: url('{{ asset('assets/images/dr.png') }}'); background-size: cover; background-position: center;">
+                            <div class="h-10 w-10 rounded-full" style="background-image: url('{{ asset('storage/'.$items->gambar) }}'); background-size: cover; background-position: center;">
                         </td>
                         <td class="px-6 py-4">
-                            Dr Aris Sucipto
+                            {{$items->judul}}
                         </td>
                         <td class="px-6 py-4">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                            {{$items->deskripsi}}
                         </td>
                         <td class="px-6 py-4">
-                            <a href="https://www.halodoc.com/artikel/diare-tak-kunjung-berhenti-saatnya-hubungi-5-dokter-ini">
-
-                                https://www.halodoc.com/artikel/diare-tak-kunjung-berhenti-saatnya-hubungi-5-dokter-ini
+                            <a href="{{$items->link}}">
+                                {{$items->link}}
                             </a>
                         </td>
-
+                        <td class="px-6 py-4">
+                            <a href="{{ route('admin.artikel.edit', $items->id) }}"
+                                class="text-blue-500 hover:underline mr-4">Edit</a>
+                            <form action="{{ route('admin.artikel.delete', $items->id) }}" method="post"
+                                style="display: inline-block">
+                                @csrf
+                                @method('delete')
+                                <button type="submit" class="text-red-500 hover:underline">Delete</button>
+                            </form>
+                        </td>
                     </tr>
-                    
+                    @endforeach
                 </tbody>
             </table>
         </div>

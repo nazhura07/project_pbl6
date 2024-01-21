@@ -2,7 +2,7 @@
 @section('title', 'Tambah Jadwal')
 @section('content')
 <div class="container mx-auto">
-    <a href="" class="flex justify-start items-center mt-4">
+    <a href="{{route('konselor.jadwal')}}" class="flex justify-start items-center mt-4">
         <div class="w-6 h-6">
             <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" fill="#000000">
                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -19,7 +19,7 @@
     <h1 class="text-center font-semibold text-xl mb-10">Tambah Jadwal</h1>
     <div class="flex justify-center items-center">
         <div class="bg-[#FFF5F5] w-3/4 p-10 mb-20 rounded-3xl">
-            <form action="" method="post" class="space-y-4" >
+            <form action="{{route('konselor.jadwal.store')}}" method="post" class="space-y-4" >
                 @csrf
                 <div class="">
                     <h1>Tanggal</h1>
@@ -33,7 +33,7 @@
                         </div>
                         <input datepicker type="text"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            placeholder="Select date">
+                            placeholder="Select date" name="tanggal">
                     </div>
                 </div>
                 <div class="">

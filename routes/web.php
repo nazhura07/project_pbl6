@@ -64,6 +64,7 @@ Route::prefix('konselor')->group(function () {
     //pengajuankonseling
     Route::get('/pengajuan-konseling', [KonselorController::class,'pengajuanKonselor'])->name('konselor.pengajuanKonselor');
     //jadwal
+    Route::delete('/jadwal/{jadwal}', [KonselorController::class, 'jadwalKonselorDestroy'])->name('konselor.jadwal.destroy');
     Route::get('/jadwal', [KonselorController::class,'jadwalKonselor'])->name('konselor.jadwal');
     Route::get('/jadwal/create',[KonselorController::class,'jadwalKonselorCreate'])->name('konselor.jadwal.create');
     Route::post('/jadwal',[KonselorController::class,'jadwalKonselorStore'])->name('konselor.jadwal.store');

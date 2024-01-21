@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Models\SesiKonseling;
 use App\Http\Requests\StoreKlienRequest;
 use App\Http\Requests\UpdateKlienRequest;
+use App\Models\JamKonseling;
 
 class KlienController extends Controller
 {
@@ -24,16 +25,19 @@ class KlienController extends Controller
         return view('pages.klien.artikel', compact('artikels'));
     }
     public function konselorKlien(){
-        // $data = Konselor::all();
-        return view('pages.klien.konselor');
+        $konselor = Konselor::all();
+        return view('pages.klien.konselor',compact('konselor'));
     }
     public function detailProfileKonselor($id)
     {
+        $data = Konselor::all();
+        // dd($konselor);
         return view('pages.klien.detailprofile', compact('data'));
     }
     public function janjitamuKlien($id)
     {
-        return view('pages.klien.janjitemu');
+        $konselor = JamKonseling::all();
+        return view('pages.klien.janjitemu', compact('konselor'));
     }
     public function janjitamuKlienStore($id){
         

@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('nama');
             $table->string('password');
-            $table->string('jenis_kelamin');
+            $table->boolean('jenis_kelamin');
             $table->string('alamat');
             $table->string('email');
             $table->timestamps();

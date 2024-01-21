@@ -6,6 +6,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\KlienController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\AuthKlienController;
+use App\Http\Controllers\KonselorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,34 +56,14 @@ Route::prefix('admin')->group(function () {
     Route::get('/konselor/create',[AdminController::class,'konselorCreate'])->name('admin.konselor.create');
 });
 
-
-
-Route::get('/admin/konselor/add', function () {
-    return view('pages.admin.konselor.createkonselor');
-});
-Route::get('/admin/artikel/add', function () {
-    return view('pages.admin.artikel.createartikel');
-});
-
 //konselor
-Route::get('/konselor/login', function () {
-    return view('pages.konselor.login');
+Route::prefix('konselor')->group(function () {
+    Route::get('/beranda', [KonselorController::class, 'konselorBeranda'])->name('konselor.beranda');
+    //pengajuankonseling
+    Route::get('/pengajuan-konseling', [KonselorController::class,'pengajuanKonselor'])->name('konselor.pengajuanKonselor');
+    //jadwal
+    Route::get('/jadwal', [KonselorController::class,'jadwalKonselor'])->name('konselor.jadwal');
+    Route::get('/jadwal/create',[KonselorController::class,'jadwalKonselorCreate'])->name('konselor.jadwal.create');
+    Route::post('/jadwal',[KonselorController::class,'jadwalKonselorStore'])->name('konselor.jadwal.store');
 });
 
-
-Route::get('/konselor/beranda', function () {
-    return view('pages.konselor.beranda');
-});
-
-Route::get('/konselor/jadwal', function () {
-    return view('pages.konselor.jadwal.jadwal');
-});
-
-
-Route::get('/konselor/create-jadwal', function () {
-    return view('pages.konselor.jadwal.createjadwal');
-});
-
-Route::get('/konselor/pengajuan-konseling', function () {
-    return view('pages.konselor.pengajuankonseling');
-});

@@ -74,6 +74,9 @@
                                             @method('PUT')
                                             <button type="submit" class="bg-red-500 text-white py-2 w-28  hover:bg-red-400 rounded-xl duration-300 ease-in-out">Batalkan</button>
                                         </form>
+                                        <a href="" class="bg-red-500 text-white py-2 w-28  hover:bg-red-400 rounded-xl duration-300 ease-in-out">
+                                            Nilai
+                                        </a>
                                     </td>
                                 </tr>
                                 <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">

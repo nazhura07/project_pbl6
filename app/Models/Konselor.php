@@ -14,8 +14,6 @@ class Konselor extends Model
         'email',
         'pendidikan_terakhir',
         'alamat',
-        'tanggal_lahir',
-        'nomor_telepon',
         'status',
         'spesialisasi', 
         'foto',

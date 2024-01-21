@@ -17,9 +17,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('pendidikan_terakhir');
             $table->string('alamat');
-            $table->string('tanggal_lahir');
             $table->string('spesialisasi');
-            $table->string('nomor_telepon');
             $table->string('foto');
             $table->boolean('status');
             $table->timestamps();

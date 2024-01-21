@@ -16,8 +16,8 @@
                         <a href="{{route('admin.artikel')}}" class="bg-[#A5242D] text-center text-white w-48 py-4 rounded-2xl hover:bg-red-500 duration-300 ease-in-out">
                             <span class="text-base">Artikel</span>
                         </a>
-                        <a href="" class="bg-red-600 text-center text-white px-4 py-4 rounded-2xl hover:bg-red-500 duration-300 ease-in-out">
-                            <span class="text-sm whitespace-nowrap">Keluar Mode Admin</span>
+                        <a href="{{route('logout')}}" class="bg-red-600 text-center text-white px-4 py-4 rounded-2xl hover:bg-red-500 duration-300 ease-in-out">
+                            <span class="text-sm whitespace-nowrap">Logout</span>
                         </a>
                     </div>
                 </div>

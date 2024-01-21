@@ -53,8 +53,12 @@ Route::prefix('admin')->group(function () {
     Route::get('/artikel/create',[AdminController::class,'artikelCreate'])->name('admin.artikel.create');
     //konselor
     Route::get('/konselor', [AdminController::class,'konselorAdmin'])->name('admin.konselor');
+    Route::get('/konselor/{konselor}/edit', [AdminController::class, 'konselorEdit'])->name('admin.konselor.edit');
+    Route::patch('/konselor/{konselor}', [AdminController::class, 'konselorUpdate'])->name('admin.konselor.update');
     Route::post('/konselor',[AdminController::class,'konselorStore'])->name('admin.konselor.store');
     Route::get('/konselor/create',[AdminController::class,'konselorCreate'])->name('admin.konselor.create');
+    Route::delete('/konselor/{konselor}', [AdminController::class, 'konselorDestroy'])->name('admin.konselor.destroy');
+
 });
 
 //konselor

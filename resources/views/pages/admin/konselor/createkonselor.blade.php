@@ -19,7 +19,7 @@
     <h1 class="text-center font-semibold text-xl mb-10">Tambah Konselor</h1>
     <div class="flex justify-center items-center">
         <div class="bg-[#FFF5F5] w-3/4 p-10 mb-20 rounded-3xl">
-            <form action="" method="post" class="space-y-4" enctype="multipart/form-data">
+            <form action="{{route('admin.konselor.store')}}" method="post" class="space-y-4" enctype="multipart/form-data">
                 @csrf
                 <div class="">
                     <h1>Nama Lengkap</h1>
@@ -42,13 +42,6 @@
                     <input type="text" id="pendidikan_terakhir" name="pendidikan_terakhir" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 shadow-sm " placeholder="Pendidikan Terakhir" required>
                 </div>
                 
-                <div class="">
-                    <h1>Jenis Kelamin</h1>
-                    <select id="jenis_kelamin" name="jenis kelamin" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                        <option value="1">Laki-Laki</option>
-                        <option value="0">Perempuan</option>
-                    </select>
-                </div>
                 <div class="">
                     <h1>Foto</h1>
                     <input type="file" id="file" name="foto" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 shadow-sm " placeholder="Pendidikan Terakhir" required>

@@ -41,14 +41,9 @@ Route::get('/konselor', function () {
 
 Route::get('/artikel', [KlienController::class, 'artikel'])->name('artikel');
 Route::get('/detail-profile', [KlienController::class, 'detailProfile'])->name('artikel');
-
-
-
-
 Route::get('/janji-temu', function () {
     return view('pages.klien.janjitemu');
 });
-
 
 Route::get('/jadwal', function () {
     return view('pages.klien.jadwal');

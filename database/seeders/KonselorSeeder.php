@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Faker\Factory as Faker;
 
 class KonselorSeeder extends Seeder
 {
@@ -14,19 +15,25 @@ class KonselorSeeder extends Seeder
      */
     public function run()
     {
+        $faker = Faker::create();
+
         DB::table('konselors')->insert([
-            'nama' => 'John Doe',
-            'email' => 'john.doe@example.com',
-            'pendidikan_terakhir' => 'S2 Psikologi',
-            'alamat' => '123 Main Street',
-            'tanggal_lahir' => '1990-01-01',
-            'tahun_lulus' => '2015',
-            'ijazah_profesi' => 'Ijazah Profesi Psikologi',
-            'surat_izin' => 'Surat Izin Praktik Psikologi',
-            'nomor_telepon' => '1234567890',
-            'status' => true,
+            'nama' => $faker->name,
+            'email' => $faker->unique()->safeEmail,
+            'pendidikan_terakhir' => $faker->word,
+            'alamat' => $faker->address,
+            'tanggal_lahir' => $faker->date,
+            'tahun_lulus' => $faker->year,
+            'ijazah_profesi' => $faker->word,
+            'surat_izin' => $faker->word,
+            'nomor_telepon' => $faker->phoneNumber,
+            'status' => $faker->boolean,
+            'spesialisasi' => $faker->word,
+            'foto' => $faker->imageUrl(),
             'created_at' => now(),
             'updated_at' => now(),
         ]);
+
+        // You can add more records as needed.
     }
 }

@@ -26,14 +26,21 @@
                 <div class="grid grid-cols-7 gap-20">
                     <div class="flex flex-col bg-white rounded-3xl w-72 overflow-hidden col-span-2">
                         <div class="h-72"
-                            style="background-image: url('{{ asset('assets/images/dr.png') }}'); background-size: cover; background-position: center;">
+                            style="background-image: url('{{ asset('assets/images/'. $data->foto ) }}'); background-size: cover; background-position: center;">
                         </div>
                         {{-- <div class="w-full flex justify-center items-center bg-red-500 py-2 rounded-b-3xl">
                             <span class="text-white text-center">Sedang Tidak Aktif</span>
                         </div> --}}
+                        @if ($data->status == 0)
+                        <div class="w-full flex justify-center items-center bg-red-500 py-2 rounded-b-3xl">
+                            <span class="text-white text-center">Tidak Aktif</span>
+                        </div>
+                            @else
                         <div class="w-full flex justify-center items-center bg-green-500 py-2 rounded-b-3xl">
                             <span class="text-white text-center">Sedang Aktif</span>
                         </div>
+                            @endif
+                            
                         <a href="" class="mt-8 bg-red-500 w-full text-white py-3 text-center rounded-2xl">
                             <span>Ajukan Sesi Konseling</span>
                         </a>
@@ -42,44 +49,38 @@
                         <div class="">
                             <h1 class="text-red-400 font-semibold text-lg">Nama Lengkap</h1>
                             <div class="w-full rounded-xl border border-gray-500 p-3">
-                                <span>Dr Joko Maulana</span>
+                                <span>{{ $data->nama }}</span>
                             </div>
                         </div>
 
                         <div class="">
                             <h1 class="text-red-400 font-semibold text-lg">Spesialis</h1>
                             <div class="w-full rounded-xl border border-gray-500 p-3">
-                                <span>Bimbingan Keluarga</span>
+                                <span>{{ $data->spesialisasi }}</span>
                             </div>
                         </div>
 
                         <div class="">
                             <h1 class="text-red-400 font-semibold text-lg">Alamat</h1>
                             <div class="w-full rounded-xl border border-gray-500 p-3">
-                                <span>Muncar kedungringin Banyuwangi</span>
+                                <span>{{ $data->alamat }}</span>
                             </div>
                         </div>
 
                         <div class="">
                             <h1 class="text-red-400 font-semibold text-lg">Email</h1>
                             <div class="w-full rounded-xl border border-gray-500 p-3">
-                                <span>joko76@gmail.com</span>
+                                <span>{{ $data->email }}</span>
                             </div>
                         </div>
 
                         <div class="">
                             <h1 class="text-red-400 font-semibold text-lg">Pendidikan Terakhir</h1>
                             <div class="w-full rounded-xl border border-gray-500 p-3">
-                                <span>S1 - Psikolog Konselling </span>
+                                <span>{{ $data->pendidikan_terakhir }}</span>
                             </div>
                         </div>
-
-                        <div class="">
-                            <h1 class="text-red-400 font-semibold text-lg">Jenis Kelamin</h1>
-                            <div class="w-full rounded-xl border border-gray-500 p-3">
-                                <span>Laki Laki</span>
-                            </div>
-                        </div>
+                        @endforeach
 
                     </div>
                     <div class="col-span-2 ">
@@ -126,7 +127,6 @@
                                     ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
                                     ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                             </div>
-                @endforeach
 
                         </div>
                     </div>

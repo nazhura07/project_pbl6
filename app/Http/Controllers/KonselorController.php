@@ -47,5 +47,8 @@ class KonselorController extends Controller
         // You can redirect to a success page or do other actions here
         return redirect()->route('success')->with('success', 'Jadwal berhasil ditambahkan!');
     }
+    public function ubahstatus(){
+        
+    }
 }
 

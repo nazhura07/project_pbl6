@@ -75,87 +75,14 @@
                                                 @method('PUT')
                                                 <button type="submit" class="bg-red-500 text-white py-2 w-28  hover:bg-red-400 rounded-xl duration-300 ease-in-out">Batalkan</button>
                                             </form>
-                                            <a href="{{route('klien.rating')}}" class="bg-red-500 text-white py-2 w-28 text-center hover:bg-red-400 rounded-xl duration-300 ease-in-out">
+                                            <a href="{{route('klien.rating',1)}}" class="bg-red-500 text-white py-2 w-28 text-center hover:bg-red-400 rounded-xl duration-300 ease-in-out">
                                                 Nilai
                                             </a>
                                         </div>
                                     </td>
                                 </tr>
-                                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                                    <th scope="row"
-                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                        1
-                                    </th>
-                                    <td class="px-6 py-4">
-                                        Dr Aris Sucipto
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        17 Januari 2024
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        $09.00 - 10.00 WIB
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        Sudah di ACC
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <form action="" method="post">
-                                            @csrf
-                                            @method('PUT')
-                                            <button type="submit" class="bg-red-500 text-white py-2 w-28  hover:bg-red-400 rounded-xl duration-300 ease-in-out">Batalkan</button>
-                                        </form>
-                                    </td>
-                                </tr>
-                                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                                    <th scope="row"
-                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                        1
-                                    </th>
-                                    <td class="px-6 py-4">
-                                        Dr Aris Sucipto
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        17 Januari 2024
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        $09.00 - 10.00 WIB
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        Sudah di ACC
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <form action="" method="post">
-                                            @csrf
-                                            @method('PUT')
-                                            <button type="submit" class="bg-red-500 text-white py-2 w-28  hover:bg-red-400 rounded-xl duration-300 ease-in-out">Batalkan</button>
-                                        </form>
-                                    </td>
-                                </tr>
-                                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                                    <th scope="row"
-                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                        1
-                                    </th>
-                                    <td class="px-6 py-4">
-                                        Dr Aris Sucipto
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        17 Januari 2024
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        $09.00 - 10.00 WIB
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        Sudah di ACC
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <form action="" method="post">
-                                            @csrf
-                                            @method('PUT')
-                                            <button type="submit" class="bg-red-500 text-white py-2 w-28  hover:bg-red-400 rounded-xl duration-300 ease-in-out">Batalkan</button>
-                                        </form>
-                                    </td>
-                                </tr>
+                                
+                                
                             </tbody>
                         </table>
                     </div>

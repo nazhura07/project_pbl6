@@ -48,9 +48,6 @@
                         <th scope="col" class="px-6 py-3 text-left">
                             Alamat
                         </th>
-                        <th scope="col" class="px-6 py-3 text-left">
-                            Aksi
-                        </th>
                     </tr>
                 </thead>
 
@@ -74,16 +71,25 @@
                         <td class="px-6 py-4">
                             Sudah di ACC
                         </td>
-                        <td class="px-6 py-4 flex justify-center items-center gap-4">
-                            <a href="" class="bg-blue-500 text-white text-center py-2 w-28  hover:bg-blue-400 rounded-xl duration-300 ease-in-out">
-                                Edit
-                            </a>
-                            <form action="" method="post">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit"
-                                    class="bg-red-500 text-white py-2 w-28  hover:bg-red-400 rounded-xl duration-300 ease-in-out">Batalkan</button>
-                            </form>
+                    </tr>
+                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            1
+                        </th>
+                        <td class="px-6 py-4">
+                            <div class="h-10 w-10 rounded-full" style="background-image: url('{{ asset('assets/images/dr.png') }}'); background-size: cover; background-position: center;">
+                        </td>
+                        <td class="px-6 py-4">
+                            Dr Aris Sucipto
+                        </td>
+                        <td class="px-6 py-4">
+                            17 Januari 2024
+                        </td>
+                        <td class="px-6 py-4">
+                            $09.00 - 10.00 WIB
+                        </td>
+                        <td class="px-6 py-4">
+                            Sudah di ACC
                         </td>
                     </tr>
                     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
@@ -105,17 +111,6 @@
                         <td class="px-6 py-4">
                             Sudah di ACC
                         </td>
-                        <td class="px-6 py-4 flex justify-center items-center gap-4">
-                            <a href="" class="bg-blue-500 text-white text-center py-2 w-28  hover:bg-blue-400 rounded-xl duration-300 ease-in-out">
-                                Edit
-                            </a>
-                            <form action="" method="post">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit"
-                                    class="bg-red-500 text-white py-2 w-28  hover:bg-red-400 rounded-xl duration-300 ease-in-out">Batalkan</button>
-                            </form>
-                        </td>
                     </tr>
                     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                         <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
@@ -135,48 +130,6 @@
                         </td>
                         <td class="px-6 py-4">
                             Sudah di ACC
-                        </td>
-                        <td class="px-6 py-4 flex justify-center items-center gap-4">
-                            <a href="" class="bg-blue-500 text-white text-center py-2 w-28  hover:bg-blue-400 rounded-xl duration-300 ease-in-out">
-                                Edit
-                            </a>
-                            <form action="" method="post">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit"
-                                    class="bg-red-500 text-white py-2 w-28  hover:bg-red-400 rounded-xl duration-300 ease-in-out">Batalkan</button>
-                            </form>
-                        </td>
-                    </tr>
-                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            1
-                        </th>
-                        <td class="px-6 py-4">
-                            <div class="h-10 w-10 rounded-full" style="background-image: url('{{ asset('assets/images/dr.png') }}'); background-size: cover; background-position: center;">
-                        </td>
-                        <td class="px-6 py-4">
-                            Dr Aris Sucipto
-                        </td>
-                        <td class="px-6 py-4">
-                            17 Januari 2024
-                        </td>
-                        <td class="px-6 py-4">
-                            $09.00 - 10.00 WIB
-                        </td>
-                        <td class="px-6 py-4">
-                            Sudah di ACC
-                        </td>
-                        <td class="px-6 py-4 flex justify-center items-center gap-4">
-                            <a href="" class="bg-blue-500 text-white text-center py-2 w-28  hover:bg-blue-400 rounded-xl duration-300 ease-in-out">
-                                Edit
-                            </a>
-                            <form action="" method="post">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit"
-                                    class="bg-red-500 text-white py-2 w-28  hover:bg-red-400 rounded-xl duration-300 ease-in-out">Batalkan</button>
-                            </form>
                         </td>
                     </tr>
                 </tbody>

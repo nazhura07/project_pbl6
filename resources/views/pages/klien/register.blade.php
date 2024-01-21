@@ -37,8 +37,7 @@
                                 <option value="1">Pria</option>
                                 <option value="0">Wanita</option>
                             </select>
-                        </div>
-                        
+                        </div>                 
                         <div class="mb-4">
                             <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
                             <input type="password" id="password" name="password"
@@ -48,7 +47,6 @@
                         <div class="mb-4">
                             <button class="bg-red-400 text-white w-full rounded-3xl py-3 hover:bg-red-500 duration-300"
                                 type="submit">Register</button>
-
                         </div>
                         <div class="flex justify-center items-center ">
                             <a href="{{route('loginview')}}" class="underline text-red-400">Sudah Memiliki Akun?</a>

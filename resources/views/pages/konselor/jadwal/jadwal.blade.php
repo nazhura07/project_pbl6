@@ -2,7 +2,7 @@
 @section('title', 'jadwal')
 @section('content')
     <div class="container mx-auto py-10">
-        <a href="" class="flex justify-start items-center">
+        <a href="{{route('konselor.beranda')}}" class="flex justify-start items-center">
             <div class="w-6 h-6">
                 <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" fill="#000000">
                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -68,9 +68,7 @@
                             10.00 
                         </td>
                         <td class="px-6 py-4 flex justify-center items-center gap-4">
-                            <a href="" class="bg-blue-500 text-white text-center py-2 w-28  hover:bg-blue-400 rounded-xl duration-300 ease-in-out">
-                                Edit
-                            </a>
+                            
                             <form action="" method="post">
                                 @csrf
                                 @method('DELETE')

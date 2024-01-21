@@ -58,7 +58,7 @@ Route::prefix('admin')->group(function () {
 
 //konselor
 Route::prefix('konselor')->group(function () {
-    Route::get('/beranda', [KonselorController::class, 'konselorBeranda'])->name('konselor.beranda');
+    Route::get('/beranda', [KonselorController::class, 'berandaKonselor'])->name('konselor.beranda');
     //pengajuankonseling
     Route::get('/pengajuan-konseling', [KonselorController::class,'pengajuanKonselor'])->name('konselor.pengajuanKonselor');
     //jadwal

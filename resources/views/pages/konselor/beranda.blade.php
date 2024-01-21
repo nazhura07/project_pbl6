@@ -15,14 +15,14 @@
                     <h1 class="text-white text-center text-4xl mb-10">LOVE & LEARN <br>
                         MUNCAR </h1>
                     <div class="flex justify-center items-center flex-col gap-5">
-                        <a href="" class="bg-[#A5242D] text-center text-white w-52 py-4 rounded-2xl hover:bg-red-500 duration-300 ease-in-out">
+                        <a href="{{route('konselor.pengajuanKonselor')}}" class="bg-[#A5242D] text-center text-white w-52 py-4 rounded-2xl hover:bg-red-500 duration-300 ease-in-out">
                             <span class="text-base">Cek Pengajuan Konseling</span>
                         </a>
-                        <a href="" class="bg-[#A5242D] text-center text-white w-52 py-4 rounded-2xl hover:bg-red-500 duration-300 ease-in-out">
+                        <a href="{{route('konselor.jadwal')}}" class="bg-[#A5242D] text-center text-white w-52 py-4 rounded-2xl hover:bg-red-500 duration-300 ease-in-out">
                             <span class="text-base">Ubah Jadwalku</span>
                         </a>
-                        <a href="" class="bg-red-600 text-center text-white px-4 py-4 rounded-2xl hover:bg-red-500 duration-300 ease-in-out">
-                            <span class="text-sm whitespace-nowrap">Keluar Mode Konselor</span>
+                        <a href="{{route('logout')}}" class="bg-red-600 text-center text-white px-4 py-4 rounded-2xl hover:bg-red-500 duration-300 ease-in-out">
+                            <span class="text-sm whitespace-nowrap">Logout</span>
                         </a>
                     </div>
                 </div>

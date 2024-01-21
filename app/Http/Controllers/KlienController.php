@@ -71,5 +71,11 @@ class KlienController extends Controller
         // You can redirect to a success page or do other actions here
         return redirect()->route('success')->with('success', 'Janji Temu berhasil dibuat!');
     }
+    public function ratingKlien(){
+        return view('pages.klien.rating');
+    }
+    public function ratingKlienStore(){
+        
+    }
 
 }

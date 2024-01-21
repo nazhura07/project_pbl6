@@ -16,4 +16,8 @@ class JamKonseling extends Model
         'konselor_id',
         // Add other fields as needed
     ];
+    public function konselor()
+    {
+        return $this->belongsTo(Konselor::class);
+    }
 }

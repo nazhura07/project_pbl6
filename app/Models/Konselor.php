@@ -18,5 +18,9 @@ class Konselor extends Authenticatable
         'status' => 'boolean',
     ];
 
-    // You can define relationships or other model-specific methods here
+    public function jamKonselings()
+    {
+        return $this->hasMany(JamKonseling::class, 'konselor_id','id');
+
+    }
 }

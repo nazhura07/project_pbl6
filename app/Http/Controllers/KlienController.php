@@ -30,13 +30,14 @@ class KlienController extends Controller
     }
     public function detailProfileKonselor($id)
     {
-        $data = Konselor::all();
-        // dd($konselor);
+        $data = Konselor::findorFail($id);
+        // dd($data);
         return view('pages.klien.detailprofile', compact('data'));
     }
     public function janjitamuKlien($id)
     {
-        $konselor = JamKonseling::all();
+        $konselor = Konselor::with('jamKonselings')->findOrFail($id);
+        // dd($konselor);
         return view('pages.klien.janjitemu', compact('konselor'));
     }
     public function janjitamuKlienStore($id){

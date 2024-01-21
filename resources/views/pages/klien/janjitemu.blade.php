@@ -21,27 +21,18 @@
         <div class="flex justify-center items-center">
             <div class="bg-white rounded-2xl py-4 px-10">
                 <h1 class="text-center font-semibold text-2xl mb-10">Buat Janji Temu</h1>
+                <p class="text-center">Buat Janji Temu dengan <br> <span class="text-red-400 text-xl">{{$konselor->nama}}</span> </p>
+                {{-- {{$konselor->jamKonselings}} --}}
                 <div class="">
-                    <div class="relative w-full">
-                        <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
-                            <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
-                                xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                                <path
-                                    d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
-                            </svg>
-                        </div>
-                        {{-- @foreach ($konselor as $data) --}}
-                        <input datepicker type="text"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            placeholder="Select date">
-                    </div>
+                  
 
                 </div>
                 <h1 class="text-center mt-4 font-semibold text-lg mb-4">Pilih Jam</h1>
                 <form action="" method="POST">
                     @csrf
-                    <div class="w-full grid grid-cols-4 gap-4">
-                        @foreach ($konselor as $data)
+                    <div class="w-full grid grid-cols-1 gap-4">
+                        @foreach ($konselor->jamKonselings as $data)
+                        {{-- <p>{{$data}}</p> --}}
                         <label class="cursor-pointer">
                             <input type="radio" id="jam" value="1" class="peer sr-only" name="jam" />
                             <div
@@ -50,7 +41,8 @@
                                 <div class="flex flex-col gap-1">
                                     <div class="flex items-center justify-between">
                                             
-                                        <p class="text-sm font-semibold uppercase  peer-checked:text-sky-700">{{ \Carbon\Carbon::parse($data->waktu_awal)->format('H:i') }}
+                                        <p class="text-sm font-semibold uppercase  peer-checked:text-sky-700">{{ date('d F Y', strtotime($data->tanggal)) }}
+                                            {{ \Carbon\Carbon::parse($data->waktu_awal)->format('H:i') }}
                                             - {{ \Carbon\Carbon::parse($data->waktu_akhir)->format('H:i') }}
                                         </p>
                                     </div>
@@ -67,76 +59,4 @@
     </div>
 
     <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
-       <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            var availableTimeSlots = []; // Array to store available time slots
-
-            // Your existing datepicker initialization code
-
-            var dateInput = document.querySelector("input[name='tanggal']");
-            dateInput.addEventListener('input', function () {
-                // Call a function to update available time slots
-                updateAvailableTimeSlots(dateInput.value);
-            });
-
-            // Function to update available time slots based on the selected date
-            function updateAvailableTimeSlots(selectedDate) {
-                // Assuming you have a way to get available time slots for each date on the server side
-                // You can store this data in the "availableTimeSlots" array
-                // For simplicity, I'll manually populate the array in this example
-                availableTimeSlots = getAvailableTimeSlots(selectedDate);
-
-                // Update the time slot options in the form
-                updateTimeSlotOptions();
-            }
-
-            // Function to get available time slots for a specific date (replace with actual data retrieval logic)
-            function getAvailableTimeSlots(selectedDate) {
-                // Example: manually populating the array (replace with actual data retrieval)
-                if (selectedDate === '2024-01-06') {
-                    return [
-                        { id: 1, startTime: '09:00', endTime: '10:00' },
-                        { id: 2, startTime: '11:00', endTime: '12:00' },
-                        // Add more time slots as needed
-                    ];
-                } else {
-                    return [];
-                }
-            }
-
-            // Function to update the time slot options in the form
-            function updateTimeSlotOptions() {
-                var grid = document.querySelector('.grid');
-
-                // Remove existing options
-                while (grid.firstChild) {
-                    grid.removeChild(grid.firstChild);
-                }
-
-                // Append new options based on the availableTimeSlots array
-                for (var i = 0; i < availableTimeSlots.length; i++) {
-                    var timeSlot = availableTimeSlots[i];
-                    var label = document.createElement('label');
-                    label.className = 'cursor-pointer';
-
-                    var input = document.createElement('input');
-                    input.type = 'radio';
-                    input.id = 'jam';
-                    input.value = timeSlot.id;
-                    input.className = 'peer sr-only';
-                    input.name = 'jam';
-
-                    var div = document.createElement('div');
-                    div.className = 'w-full max-w-xl rounded-md bg-gray-50 p-5 text-gray-600 ring-2 ring-transparent transition-all hover:shadow shadow-md peer-checked:bg-blue-500 peer-checked:text-gray-50 peer-checked:ring-blue-500 peer-checked:ring-offset-2 peer-checked:shadow-md peer-checked:shadow-blue-700';
-
-                    // Update the content of the time slot based on your data structure
-                    div.innerHTML = '<div class="flex flex-col gap-1"><div class="flex items-center justify-between"><p class="text-sm font-semibold uppercase  peer-checked:text-sky-700">' + timeSlot.startTime + '-' + timeSlot.endTime + '</p></div></div>';
-
-                    label.appendChild(input);
-                    label.appendChild(div);
-                    grid.appendChild(label);
-                }
-            }
-        });
-    </script>
 @endsection

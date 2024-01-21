@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Users;
+use App\Models\Artikel;
 use App\Models\Konselor;
 use Illuminate\Http\Request;
 
@@ -16,13 +17,7 @@ class AdminController extends Controller
         return view('pages.admin.beranda');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function artikelAdmin()
-    {
-        return view('pages.admin.artikel.artikel');
-    }
+
 
     public function artikelCreate(){
         return view('pages.admin.artikel.createartikel');
@@ -30,31 +25,33 @@ class AdminController extends Controller
 
     public function artikelStore(Request $request){
 
-        $request->validate([
-            'nama' => 'required',
-            'email' => 'required|email',
-            'pendidikan_terakhir' => 'required',
-            'alamat' => 'required',
-            'spesialis' => 'required|string',
-            'jenis_kelamin' => 'required',
-            'foto' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-        ]);
+       // Validation rules
+        $rules = [
+        'judul' => 'required|string|max:255',
+        'deskripsi' => 'required|string',
+        'link' => 'required|string|max:255',
+        'foto' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+    ];
 
-        // Proses penyimpanan data konselor ke dalam database
-        $fotoPath = $request->file('foto')->store('konselor_photos', 'public');
+    // Validate the request
+    $request->validate($rules);
 
-        Konselor::create([
-            'nama' => $request->input('nama'),
-            'spesialisasi' => $request->input('spesialis'),
-            'alamat' => $request->input('alamat'),
-            'email' => $request->input('email'),
-            'pendidikan_terakhir' => $request->input('pendidikan_terakhir'),
-            'jenis_kelamin' => $request->input('jenis_kelamin'),
-            'foto' => $fotoPath,
-        ]);
+    // Store the uploaded file
+    $fotoPath = $request->file('foto')->store('artikel_photos', 'public');
 
-        // Redirect kembali ke halaman dengan pesan sukses
-        return redirect()->route('admin.konselor')->with('success', 'Konselor berhasil ditambahkan!');
+    // Create a new Artikel instance
+    $artikel = new Artikel([
+        'judul' => $request->input('judul'),
+        'deskripsi' => $request->input('deskripsi'),
+        'link' => $request->input('link'),
+        'foto' => $fotoPath,
+    ]);
+
+    // Save the Artikel to the database
+    $artikel->save();
+
+    // Redirect back to the artikel index page with a success message
+    return redirect()->route('admin.artikel')->with('success', 'Artikel added successfully.');
     }
 
     public function konselorAdmin()

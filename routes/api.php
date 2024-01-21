@@ -14,6 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum') ,function () {
-    Route::get('/home',[]);
-});
+// Route::middleware('auth:sanctum') ,function () {
+//     Route::get('/home',[]);
+// });

@@ -19,19 +19,20 @@
     <h1 class="text-center font-semibold text-xl mb-10">Tambah Artikel</h1>
     <div class="flex justify-center items-center">
         <div class="bg-[#FFF5F5] w-3/4 p-10 mb-20 rounded-3xl">
-            <form action="{{route('admin.artikel.store')}}" method="post" class="space-y-4" enctype="multipart/form-data">
+            <form action="{{route('admin.artikel.update',$artikel->id)}}" method="post" class="space-y-4" enctype="multipart/form-data">
                 @csrf
+                @method('PUT')
                 <div class="">
                     <h1>Judul</h1>
-                    <input type="text" id="judul" name="judul" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 shadow-sm " placeholder="Judul" required>
+                    <input type="text" id="judul" name="judul" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 shadow-sm " placeholder="Judul" required value="{{$artikel->judul}}">
                 </div>
                 <div class="">
                     <h1>Deskripsi</h1>
-                    <textarea id="deskripsi" name="deskripsi" rows="5" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 shadow-sm" placeholder="Deskripsi" required></textarea>
+                    <textarea id="deskripsi" name="deskripsi" rows="5" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 shadow-sm" placeholder="Deskripsi" required>{{$artikel->deskripsi}}</textarea>
                 </div>
                 <div class="">
                     <h1>Link</h1>
-                    <input type="text" id="link" name="link" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 shadow-sm " placeholder="link" required>
+                    <input type="text" id="link" name="link" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 shadow-sm " placeholder="link" required value="{{$artikel->link}}">
                 </div>
                 <div class="">
                     <h1>Foto</h1>

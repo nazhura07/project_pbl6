@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ArtikelController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\KlienController;
@@ -48,9 +49,12 @@ Route::prefix('client')->group(function () {
 Route::prefix('admin')->group(function () {
     Route::get('/beranda', [AdminController::class, 'berandaAdmin'])->name('admin.beranda');
     //artikel
-    Route::get('/artikel', [AdminController::class,'artikelAdmin'])->name('admin.artikel');
-    Route::post('/artikel',[AdminController::class,'artikelStore'])->name('admin.artikel.store');
-    Route::get('/artikel/create',[AdminController::class,'artikelCreate'])->name('admin.artikel.create');
+    Route::get('/artikel', [ArtikelController::class,'index'])->name('admin.artikel');
+    Route::post('/artikel',[ArtikelController::class,'store'])->name('admin.artikel.store');
+    Route::get('/artikel/create',[ArtikelController::class,'create'])->name('admin.artikel.create');
+    Route::get('/artikel/edit/{id}', [ArtikelController::class, 'edit'])->name('admin.artikel.edit');
+    Route::put('/artikel/update/{id}', [ArtikelController::class, 'update'])->name('admin.artikel.update');
+    Route::delete('/artikel/delete/{id}', [ArtikelController::class, 'destroy'])->name('admin.artikel.delete');
     //konselor
     Route::get('/konselor', [AdminController::class,'konselorAdmin'])->name('admin.konselor');
     Route::post('/konselor',[AdminController::class,'konselorStore'])->name('admin.konselor.store');

@@ -19,6 +19,7 @@ use App\Http\Controllers\YourController;
 */
 
 Route::post('/login',[ApiAuthController::class,'AuthLogin']);
+Route::post('/register',[ApiAuthController::class,'register']);
 
 
 Route::middleware('auth:sanctum')->group(function () {

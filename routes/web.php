@@ -26,9 +26,10 @@ Route::get('/logout', [AuthKlienController::class, 'logout'])->name('logout');
 Route::get('/register', [AuthKlienController::class, 'show'])->name('registerview');
 Route::post('/register', [AuthKlienController::class, 'store'])->name('register');
 
+Route::get('/', [AuthKlienController::class, 'homeKlien'])->name('klien.home');
 
-// klien
 Route::prefix('client')->group(function () {
+    // klien
     Route::get('/beranda', [KlienController::class, 'berandaKlien'])->name('klien.beranda');
     //artikel
     Route::get('/artikel', [KlienController::class, 'artikelKlien'])->name('klien.artikel');

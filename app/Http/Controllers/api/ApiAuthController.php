@@ -1,10 +1,10 @@
 <?php
-
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\api;
 
 use App\Models\Klien;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Contracts\Validation\Validator; // Add this import
 
@@ -14,13 +14,13 @@ class ApiAuthController extends Controller
     {
         // Validation rules
         $rules = [
-            'username' => 'required',
+            'email' => 'required',
             'password' => 'required',
         ];
 
         // Validation messages
         $messages = [
-            'username.required' => 'Kolom Username wajib diisi.',
+            'email.required' => 'Kolom Email wajib diisi.',
             'password.required' => 'Kolom Password wajib diisi.',
         ];
 
@@ -37,22 +37,30 @@ class ApiAuthController extends Controller
         // Get validated data
         $data = $validator->validated();
 
-        // Find user by username
-        $user = Klien::where('nama', $data['username'])->first();
+        // Find user by email
+        $user = Klien::where('email', $data['email'])->first();
 
         // Check if user exists and password is correct
         if (!$user || !Hash::check($data['password'], $user->password)) {
             throw new HttpResponseException(response([
                 'errors' => [
-                    'username' => [
-                        'Username or password is incorrect',
+                    'email' => [
+                        'Email or password is incorrect',
                     ],
                 ],
             ], 400));
         }
 
-        // Create and return token based on username
-        return response()->json($user,200);
+        // Create token for the user
+        $token = $user->createToken('api-token')->plainTextToken;
+
+        // Add the token to the response
+        $response = [
+            'user' => $user,
+            'token' => $token,
+        ];
+
+        return response()->json($response, 200);
     }
 
     public function logout(Request $request)

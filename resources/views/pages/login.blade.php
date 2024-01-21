@@ -1,5 +1,5 @@
 @extends('layout.pages')
-@section('title','login Admin')
+@section('title','Login')
 @section('content')
 <div class="bg-[#F0CDCF] h-screen flex justify-center items-center">
     <div class="bg-slate-50 p-10 rounded-3xl shadow-lg">
@@ -30,7 +30,8 @@
                             <button class="bg-red-400 text-white w-full rounded-3xl py-3 hover:bg-red-500 duration-300" type="submit">Masuk</button>
                         </div>
                         <div class="flex justify-center items-center ">
-                            <a href="{{ route('registerview') }}" class="underline text-red-400">Register Sebagai Klien?</a>
+             <a href="{{ route('registerview') }}" class="underline text-red-400">Register Sebagai Klien?</a>
+
                         </div>
                     </form>
                 </div>

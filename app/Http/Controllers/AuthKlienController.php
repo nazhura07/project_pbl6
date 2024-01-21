@@ -18,6 +18,10 @@ class AuthKlienController extends Controller
     {
         return view('pages.login');
     }
+    public function homeKlien()
+    {
+        return view('pages.klien.home');
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -28,11 +32,6 @@ class AuthKlienController extends Controller
             'email' => 'required|email',
             'password' => 'required',
         ]);
-
-        if (Auth::guard("web")->attempt($credentials)) {
-            $request->session()->regenerate();
-            return redirect()->intended(route('klien.beranda'));
-        }
 
         if (Auth::guard("admin")->attempt($credentials)) {
             $request->session()->regenerate();
@@ -52,7 +51,7 @@ class AuthKlienController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect()->route('login');
+        return redirect()->route('klien.home')->with('success', 'Logout Berhasil');
     }
 
     public function store(Request $request){
@@ -65,12 +64,15 @@ class AuthKlienController extends Controller
             'alamat' => 'required',
             'jenis_kelamin' => 'required',
             'password' => 'required',
+            'konfirmasi_password' => 'required|same:password',
         ]);
-
-        $user = Klien::create($request->all());
-
-        $user->assignRole($role);
-
+        $data = new Klien();
+        $data->nama = $request->nama;
+        $data->email = $request->email;
+        $data->alamat = $request->alamat;
+        $data->jenis_kelamin = $request->jenis_kelamin;
+        $data->password = $request->password;
+        $data->save();
         return redirect('/login')->with('registerSukses', 'Akun Berhasil dibuat');
     }
     public function show(){

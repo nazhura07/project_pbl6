@@ -1,5 +1,5 @@
 @extends('layout.pages')
-@section('title', 'Tambah Konselor')
+@section('title', 'Edit Konselor')
 @section('content')
     <div class="container mx-auto">
         <a href="{{ route('admin.konselor') }}" class="flex justify-start items-center mt-4">

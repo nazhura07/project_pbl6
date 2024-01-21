@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\api;
 
 use App\Models\Artikel;
 use App\Models\Konselor;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class ApiHomeController extends Controller
 {
